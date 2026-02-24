@@ -6,20 +6,35 @@ import { Logos } from "@/components/blocks/logos";
 import { Pricing } from "@/components/blocks/pricing";
 import { ResourceAllocation } from "@/components/blocks/resource-allocation";
 import { Testimonials } from "@/components/blocks/testimonials";
+import { FadeIn } from "@/components/fade-in";
 
 export default function Home() {
   return (
     <>
       <Background className="via-muted to-muted/80">
-        <Hero />
-        <Logos />
-        <Features />
-        <ResourceAllocation />
+        <FadeIn>
+          <Hero />
+        </FadeIn>
+        <FadeIn>
+          <Logos />
+        </FadeIn>
+        <FadeIn>
+          <Features />
+        </FadeIn>
+        <FadeIn>
+          <ResourceAllocation />
+        </FadeIn>
       </Background>
-      <Testimonials />
+      <FadeIn>
+        <Testimonials />
+      </FadeIn>
       <Background variant="bottom">
-        <Pricing />
-        <FAQ />
+        <FadeIn>
+          <Pricing />
+        </FadeIn>
+        <FadeIn>
+          <FAQ />
+        </FadeIn>
       </Background>
     </>
   );

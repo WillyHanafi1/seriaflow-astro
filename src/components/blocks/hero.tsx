@@ -11,6 +11,9 @@ import {
 import { DashedLine } from "@/components/dashed-line";
 import { Button } from "@/components/ui/button";
 
+import React from "react";
+import { Vortex } from "@/components/ui/vortex";
+
 const features = [
   {
     title: "Tailored workflows",
@@ -36,8 +39,17 @@ const features = [
 
 export const Hero = () => {
   return (
-    <section className="py-28 lg:py-32 lg:pt-44">
-      <div className="container flex flex-col justify-between gap-8 md:gap-14 lg:flex-row lg:gap-20">
+    <section className="relative overflow-hidden py-28 lg:py-32 lg:pt-44">
+      <div className="absolute inset-0 z-0">
+        <Vortex
+          backgroundColor="transparent"
+          rangeY={800}
+          particleCount={700}
+          baseHue={345}
+          className="h-full w-full"
+        />
+      </div>
+      <div className="container relative z-10 flex flex-col justify-between gap-8 md:gap-14 lg:flex-row lg:gap-20">
         {/* Left side - Main content */}
         <div className="flex-1">
           <h1 className="text-foreground max-w-160 text-3xl tracking-tight md:text-4xl lg:text-5xl xl:whitespace-nowrap">
@@ -100,7 +112,7 @@ export const Hero = () => {
         </div>
       </div>
 
-      <div className="mt-12 max-lg:ml-6 max-lg:h-[550px] max-lg:overflow-hidden md:mt-20 lg:container lg:mt-24">
+      <div className="relative z-10 mt-12 max-lg:ml-6 max-lg:h-[550px] max-lg:overflow-hidden md:mt-20 lg:container lg:mt-24">
         <div className="relative h-[793px] w-full">
           <Image
             src="/hero.webp"

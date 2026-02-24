@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion, useScroll, useMotionValueEvent } from "motion/react";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -48,12 +49,42 @@ export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const pathname = usePathname();
+  
+  const { scrollY } = useScroll();
+  const [hidden, setHidden] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useMotionValueEvent(scrollY, "change", (latest: number) => {
+    const previous = scrollY.getPrevious() ?? 0;
+    
+    // Check if we passed the top
+    if (latest > 50) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+
+    // Hide navbar when scrolling down, show when scrolling up
+    if (latest > previous && latest > 150) {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
+  });
 
   return (
-    <section
+    <motion.section
+      variants={{
+        visible: { y: 0, opacity: 1 },
+        hidden: { y: "-150%", opacity: 0 },
+      }}
+      initial={{ y: "-150%", opacity: 0 }}
+      animate={hidden ? "hidden" : "visible"}
+      transition={{ duration: 0.35, ease: "easeInOut" }}
       className={cn(
-        "bg-background/70 absolute left-1/2 z-50 w-[min(90%,700px)] -translate-x-1/2 rounded-4xl border backdrop-blur-md transition-all duration-300",
-        "top-5 lg:top-12",
+        "bg-background/80 fixed left-1/2 z-50 w-[min(90%,700px)] -translate-x-1/2 rounded-4xl border backdrop-blur-md",
+        "top-5 lg:top-8",
+        scrolled ? "shadow-lg bg-background/90" : "shadow-none bg-background/60"
       )}
     >
       <div className="flex items-center justify-between px-6 py-3">
@@ -235,6 +266,6 @@ export const Navbar = () => {
           )}
         </nav>
       </div>
-    </section>
+    </motion.section>
   );
 };
