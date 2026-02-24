@@ -75,10 +75,8 @@ export const Hero = () => {
       <Vortex
         backgroundColor={bgColor}
         rangeY={800}
-        particleCount={500}
-        baseHue={isDark ? 280 : 220}
-        baseSpeed={isDark ? 0 : 0.3}
-        rangeSpeed={isDark ? 1.5 : 2}
+        baseSpeed={1}
+        rangeSpeed={1}
         containerClassName="w-full"
         className="flex flex-col py-28 lg:py-32 lg:pt-44 w-full"
       >

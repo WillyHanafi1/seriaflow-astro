@@ -6,12 +6,14 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 
 export function ThemeToggle() {
-  const [theme, setThemeState] = useState<"light" | "dark">("light");
+  const [theme, setThemeState] = useState<"light" | "dark">("dark");
 
   useEffect(() => {
+    // Check if body has dark class or we explicitly have dark in storage.
+    // Default to dark if not set.
     const isDark =
       document.documentElement.classList.contains("dark") ||
-      localStorage.getItem("theme") === "dark";
+      localStorage.getItem("theme") !== "light";
     setThemeState(isDark ? "dark" : "light");
   }, []);
 

@@ -33,7 +33,7 @@ import { ClientRouter } from 'astro:transitions';
         if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
           return localStorage.getItem('theme');
         }
-        // Default: dark (regardless of OS preference)
+        // Force default: config requested by user
         return 'dark';
       };
 

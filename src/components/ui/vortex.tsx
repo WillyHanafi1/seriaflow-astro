@@ -1,9 +1,8 @@
 "use client";
-
 import { cn } from "@/lib/utils";
-import { motion } from "motion/react";
 import React, { useEffect, useRef } from "react";
 import { createNoise3D } from "simplex-noise";
+import { motion } from "motion/react";
 
 interface VortexProps {
   children?: any;
@@ -21,7 +20,8 @@ interface VortexProps {
 
 export const Vortex = (props: VortexProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const animationFrameId = useRef<number>(null);
   const particleCount = props.particleCount || 700;
   const particlePropCount = 9;
   const particlePropsLength = particleCount * particlePropCount;
@@ -54,7 +54,7 @@ export const Vortex = (props: VortexProps) => {
     return Math.abs(((t + hm) % m) - hm) / hm;
   };
   const lerp = (n1: number, n2: number, speed: number): number =>
-    n1 + (n2 - n1) * speed;
+    (1 - speed) * n1 + speed * n2;
 
   const setup = () => {
     const canvas = canvasRef.current;
@@ -111,7 +111,9 @@ export const Vortex = (props: VortexProps) => {
     renderGlow(canvas, ctx);
     renderToScreen(canvas, ctx);
 
-    window.requestAnimationFrame(() => draw(canvas, ctx));
+    animationFrameId.current = window.requestAnimationFrame(() =>
+      draw(canvas, ctx),
+    );
   };
 
   const drawParticles = (ctx: CanvasRenderingContext2D) => {
@@ -169,7 +171,7 @@ export const Vortex = (props: VortexProps) => {
     ttl: number,
     radius: number,
     hue: number,
-    ctx: CanvasRenderingContext2D
+    ctx: CanvasRenderingContext2D,
   ) => {
     ctx.save();
     ctx.lineCap = "round";
@@ -189,12 +191,12 @@ export const Vortex = (props: VortexProps) => {
 
   const resize = (
     canvas: HTMLCanvasElement,
-    ctx?: CanvasRenderingContext2D
+    ctx?: CanvasRenderingContext2D,
   ) => {
     const { innerWidth, innerHeight } = window;
 
-    canvas.width = innerWidth;
-    canvas.height = innerHeight;
+    canvas.width = canvas.parentElement?.clientWidth || innerWidth;
+    canvas.height = canvas.parentElement?.clientHeight || innerHeight;
 
     center[0] = 0.5 * canvas.width;
     center[1] = 0.5 * canvas.height;
@@ -202,7 +204,7 @@ export const Vortex = (props: VortexProps) => {
 
   const renderGlow = (
     canvas: HTMLCanvasElement,
-    ctx: CanvasRenderingContext2D
+    ctx: CanvasRenderingContext2D,
   ) => {
     ctx.save();
     ctx.filter = "blur(8px) brightness(200%)";
@@ -219,7 +221,7 @@ export const Vortex = (props: VortexProps) => {
 
   const renderToScreen = (
     canvas: HTMLCanvasElement,
-    ctx: CanvasRenderingContext2D
+    ctx: CanvasRenderingContext2D,
   ) => {
     ctx.save();
     ctx.globalCompositeOperation = "lighter";
@@ -227,15 +229,31 @@ export const Vortex = (props: VortexProps) => {
     ctx.restore();
   };
 
+  const handleResize = () => {
+    const canvas = canvasRef.current;
+    const ctx = canvas?.getContext("2d");
+    if (canvas && ctx) {
+      resize(canvas, ctx);
+    }
+  };
+
   useEffect(() => {
     setup();
-    window.addEventListener("resize", () => {
-      const canvas = canvasRef.current;
-      const ctx = canvas?.getContext("2d");
-      if (canvas && ctx) {
-        resize(canvas, ctx);
+    window.addEventListener("resize", handleResize);
+
+    let observer: ResizeObserver | null = null;
+    if (containerRef.current) {
+      observer = new ResizeObserver(() => handleResize());
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      if (observer) observer.disconnect();
+      if (animationFrameId.current) {
+        cancelAnimationFrame(animationFrameId.current);
       }
-    });
+    };
   }, []);
 
   return (
@@ -244,7 +262,7 @@ export const Vortex = (props: VortexProps) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         ref={containerRef}
-        className="absolute h-full w-full inset-0 z-0 bg-transparent flex items-center justify-center"
+        className="absolute inset-0 z-0 flex h-full w-full items-center justify-center bg-transparent"
       >
         <canvas ref={canvasRef}></canvas>
       </motion.div>
