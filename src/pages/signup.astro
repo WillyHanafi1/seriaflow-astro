@@ -1,0 +1,71 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Navbar } from "@/components/blocks/navbar";
+import { Footer } from "@/components/blocks/footer";
+import { Background } from "@/components/background";
+
+import { FcGoogle } from "react-icons/fc";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+---
+
+<Layout>
+  <Navbar client:load />
+
+  <Background client:load>
+    <section class="py-28 lg:pt-44 lg:pb-32">
+      <div class="container">
+        <div class="flex flex-col gap-4">
+          <Card className="mx-auto w-full max-w-sm" client:load>
+            <CardHeader className="flex flex-col items-center space-y-0">
+              <img
+                src="/logo.svg"
+                alt="logo"
+                width={94}
+                height={18}
+                class="mb-7 dark:invert"
+              />
+              <p class="mb-2 text-2xl font-bold">Start your free trial</p>
+              <p class="text-muted-foreground">
+                Sign up in less than 2 minutes.
+              </p>
+            </CardHeader>
+            <CardContent>
+              <div class="grid gap-4">
+                <Input type="text" placeholder="Enter your name" required client:load />
+                <Input type="email" placeholder="Enter your email" required client:load />
+                <div>
+                  <Input
+                    type="password"
+                    placeholder="Enter your password"
+                    required
+                    client:load
+                  />
+                  <p class="text-muted-foreground mt-1 text-sm">
+                    Must be at least 8 characters.
+                  </p>
+                </div>
+                <Button type="submit" className="mt-2 w-full" client:load>
+                  Create an account
+                </Button>
+                <Button variant="outline" className="w-full" client:load>
+                  <FcGoogle className="mr-2 size-5" />
+                  Sign up with Google
+                </Button>
+              </div>
+              <div class="text-muted-foreground mx-auto mt-8 flex justify-center gap-1 text-sm">
+                <p>Already have an account?</p>
+                <a href="/login" class="text-primary font-medium">
+                  Log in
+                </a>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </section>
+  </Background>
+  
+  <Footer />
+</Layout>

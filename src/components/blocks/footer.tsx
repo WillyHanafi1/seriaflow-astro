@@ -1,4 +1,3 @@
-import Link from "next/link";
 
 import { ArrowUpRight } from "lucide-react";
 
@@ -43,34 +42,34 @@ export function Footer() {
         <ul className="flex flex-wrap items-center justify-center gap-6">
           {navigation.map((item) => (
             <li key={item.name}>
-              <Link
+              <a
                 href={item.href}
                 className="font-medium transition-opacity hover:opacity-75"
               >
                 {item.name}
-              </Link>
+              </a>
             </li>
           ))}
           {social.map((item) => (
             <li key={item.name}>
-              <Link
+              <a
                 href={item.href}
                 className="flex items-center gap-0.5 font-medium transition-opacity hover:opacity-75"
               >
                 {item.name} <ArrowUpRight className="size-4" />
-              </Link>
+              </a>
             </li>
           ))}
         </ul>
         <ul className="flex flex-wrap items-center justify-center gap-6">
           {legal.map((item) => (
             <li key={item.name}>
-              <Link
+              <a
                 href={item.href}
                 className="text-muted-foreground text-sm transition-opacity hover:opacity-75"
               >
                 {item.name}
-              </Link>
+              </a>
             </li>
           ))}
         </ul>

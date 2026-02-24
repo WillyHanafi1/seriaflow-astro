@@ -1,4 +1,4 @@
-import Link from "next/link";
+
 
 import {
   Accordion,
@@ -86,9 +86,9 @@ export const FAQ = ({
             )}
             <p className="text-muted-foreground max-w-md leading-snug lg:mx-auto">
               If you can't find what you're looking for,{" "}
-              <Link href="/contact" className="underline underline-offset-4">
+              <a href="/contact" className="underline underline-offset-4">
                 get in touch
-              </Link>
+              </a>
               .
             </p>
           </div>

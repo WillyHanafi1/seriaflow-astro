@@ -1,0 +1,26 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Navbar } from "@/components/blocks/navbar";
+import { Footer } from "@/components/blocks/footer";
+import { Background } from "@/components/background";
+import { FAQ } from "@/components/blocks/faq";
+import { Testimonials } from "@/components/blocks/testimonials";
+import { DashedLine } from "@/components/dashed-line";
+---
+
+<Layout>
+  <Navbar client:load />
+
+  <Background client:load>
+    <FAQ
+      className="py-28 text-center lg:pt-44 lg:pb-32"
+      className2="max-w-xl lg:grid-cols-1"
+      headerTag="h1"
+      client:visible
+    />
+    <DashedLine className="mx-auto max-w-xl" />
+    <Testimonials dashedLineClassName="hidden" client:visible />
+  </Background>
+  
+  <Footer />
+</Layout>

@@ -2,11 +2,11 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Check } from "lucide-react";
 import { motion } from "motion/react";
-import { useAction } from "next-safe-action/hooks";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 
-import { serverAction } from "@/actions/server-action";
+
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
@@ -42,20 +42,18 @@ export function ContactForm() {
       agree: false,
     } as unknown as Schema,
   });
-  const formAction = useAction(serverAction, {
-    onSuccess: () => {
-      // TODO: show success message
-      form.reset();
-    },
-    onError: () => {
-      // TODO: show error message
-    },
-  });
-  const handleSubmit = form.handleSubmit(async (data: Schema) => {
-    formAction.execute(data);
-  });
+  const [isExecuting, setIsExecuting] = useState(false);
+  const [hasSucceeded, setHasSucceeded] = useState(false);
 
-  const { isExecuting, hasSucceeded } = formAction;
+  const handleSubmit = form.handleSubmit(async (data: Schema) => {
+    setIsExecuting(true);
+    // Simulate API call
+    setTimeout(() => {
+      setIsExecuting(false);
+      setHasSucceeded(true);
+      form.reset();
+    }, 1000);
+  });
   if (hasSucceeded) {
     return (
       <div className="w-full gap-2 rounded-md border p-2 sm:p-5 md:p-8">

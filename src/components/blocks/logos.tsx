@@ -1,9 +1,7 @@
-import Image from "next/image";
-import Link from "next/link";
 
-import Marquee from "react-fast-marquee";
 
 import { cn } from "@/lib/utils";
+
 
 type Company = {
   name: string;
@@ -130,39 +128,44 @@ const LogoRow = ({ companies, gridClassName, direction }: LogoRowProps) => {
           )}
         >
           {companies.map((company, index) => (
-            <Link href={company.href} target="_blank" key={index}>
-              <Image
+            <a href={company.href} target="_blank" key={index}>
+              <img
                 src={company.logo}
                 alt={`${company.name} logo`}
                 width={company.width}
                 height={company.height}
                 className="dark:opacity/100 object-contain opacity-50 transition-opacity hover:opacity-70 dark:invert"
               />
-            </Link>
+            </a>
           ))}
         </div>
       </div>
 
-      {/* Mobile marquee version */}
-      <div className="md:hidden">
-        <Marquee direction={direction} pauseOnHover>
-          {companies.map((company, index) => (
-            <Link
+      {/* Mobile CSS marquee version */}
+      <div className="md:hidden overflow-hidden">
+        <div
+          className={cn(
+            "flex gap-12 w-max",
+            direction === "right" ? "animate-marquee-reverse" : "animate-marquee"
+          )}
+        >
+          {[...companies, ...companies].map((company, index) => (
+            <a
               href={company.href}
               target="_blank"
               key={index}
-              className="mx-8 inline-block transition-opacity hover:opacity-70"
+              className="mx-4 inline-block transition-opacity hover:opacity-70 flex-shrink-0"
             >
-              <Image
+              <img
                 src={company.logo}
                 alt={`${company.name} logo`}
                 width={company.width}
                 height={company.height}
                 className="object-contain"
               />
-            </Link>
+            </a>
           ))}
-        </Marquee>
+        </div>
       </div>
     </>
   );

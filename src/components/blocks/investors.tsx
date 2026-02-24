@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 
 const investors = [
   {
@@ -37,7 +37,7 @@ export function Investors() {
       <div className="mt-8 grid grid-cols-2 gap-12 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
         {investors.map((investor) => (
           <div key={investor.name} className="">
-            <Image
+            <img
               src={investor.image}
               alt={investor.name}
               width={120}

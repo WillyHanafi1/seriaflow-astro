@@ -1,0 +1,19 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Navbar } from "@/components/blocks/navbar";
+import { Footer } from "@/components/blocks/footer";
+import { Background } from "@/components/background";
+import { Pricing } from "@/components/blocks/pricing";
+import { PricingTable } from "@/components/blocks/pricing-table";
+---
+
+<Layout>
+  <Navbar client:load />
+
+  <Background client:load>
+    <Pricing className="py-28 text-center lg:pt-44 lg:pb-32" client:load />
+    <PricingTable client:load />
+  </Background>
+  
+  <Footer />
+</Layout>

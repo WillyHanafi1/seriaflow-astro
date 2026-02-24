@@ -3,9 +3,7 @@
 import { useState } from "react";
 import { motion, useScroll, useMotionValueEvent } from "motion/react";
 
-import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 
 import { ChevronRight, Github } from "lucide-react";
 
@@ -48,7 +46,11 @@ const ITEMS = [
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const pathname = usePathname();
+  const [pathname, setPathname] = useState("");
+
+  useEffect(() => {
+    setPathname(window.location.pathname);
+  }, []);
   
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
@@ -88,15 +90,15 @@ export const Navbar = () => {
       )}
     >
       <div className="flex items-center justify-between px-6 py-3">
-        <Link href="/" className="flex shrink-0 items-center gap-2">
-          <Image
+        <a href="/" className="flex shrink-0 items-center gap-2">
+          <img
             src="/logo.svg"
             alt="logo"
             width={94}
             height={18}
             className="dark:invert"
           />
-        </Link>
+        </a>
 
         {/* Desktop Navigation */}
         <NavigationMenu className="max-lg:hidden">
@@ -112,7 +114,7 @@ export const Navbar = () => {
                       {link.dropdownItems.map((item) => (
                         <li key={item.title}>
                           <NavigationMenuLink asChild>
-                            <Link
+                            <a
                               href={item.href}
                               className="group hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground flex items-center gap-4 rounded-md p-3 leading-none no-underline outline-hidden transition-colors select-none"
                             >
@@ -124,7 +126,7 @@ export const Navbar = () => {
                                   {item.description}
                                 </p>
                               </div>
-                            </Link>
+                            </a>
                           </NavigationMenuLink>
                         </li>
                       ))}
@@ -133,7 +135,7 @@ export const Navbar = () => {
                 </NavigationMenuItem>
               ) : (
                 <NavigationMenuItem key={link.label} className="">
-                  <Link
+                  <a
                     href={link.href}
                     className={cn(
                       "relative bg-transparent px-1.5 text-sm font-medium transition-opacity hover:opacity-75",
@@ -141,7 +143,7 @@ export const Navbar = () => {
                     )}
                   >
                     {link.label}
-                  </Link>
+                  </a>
                 </NavigationMenuItem>
               ),
             )}
@@ -151,11 +153,11 @@ export const Navbar = () => {
         {/* Auth Buttons */}
         <div className="flex items-center gap-2.5">
           <ThemeToggle />
-          <Link href="/login" className="max-lg:hidden">
+          <a href="/login" className="max-lg:hidden">
             <Button variant="outline">
               <span className="relative z-10">Login</span>
             </Button>
-          </Link>
+          </a>
           <a
             href="https://github.com/shadcnblocks/mainline-nextjs-template"
             className="text-muted-foreground hover:text-foreground transition-colors"
@@ -227,7 +229,7 @@ export const Navbar = () => {
                 >
                   <div className="bg-muted/50 space-y-3 rounded-lg p-4">
                     {link.dropdownItems.map((item) => (
-                      <Link
+                      <a
                         key={item.title}
                         href={item.href}
                         className="group hover:bg-accent block rounded-md p-2 transition-colors"
@@ -245,13 +247,13 @@ export const Navbar = () => {
                             {item.description}
                           </p>
                         </div>
-                      </Link>
+                      </a>
                     ))}
                   </div>
                 </div>
               </div>
             ) : (
-              <Link
+              <a
                 key={link.label}
                 href={link.href}
                 className={cn(
@@ -261,7 +263,7 @@ export const Navbar = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.label}
-              </Link>
+              </a>
             ),
           )}
         </nav>

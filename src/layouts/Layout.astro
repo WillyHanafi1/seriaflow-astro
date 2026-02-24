@@ -1,0 +1,103 @@
+---
+import "@/styles/globals.css";
+import { ClientRouter } from 'astro:transitions';
+---
+
+<!doctype html>
+<html lang="en" suppressHydrationWarning>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Seriaflow — AI Automation Agency</title>
+    <meta name="description" content="Seriaflow helps businesses grow with AI automation, intelligent workflows, and modern web solutions." />
+
+    <!-- Astro View Transitions (SPA page transitions) -->
+    <ClientRouter />
+
+    <!-- Google Fonts: Inter (body) + Plus Jakarta Sans (headings) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Theme script: runs immediately to avoid FOUC.
+         Default = dark. Persisted in localStorage.
+         On View Transition: astro:before-swap copies the class to the incoming
+         document BEFORE the DOM swap so the theme never flashes. -->
+    <script is:inline>
+      const getTheme = () => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        // Default: dark (regardless of OS preference)
+        return 'dark';
+      };
+
+      const applyTheme = (doc) => {
+        const theme = getTheme();
+        if (theme === 'dark') {
+          doc.documentElement.classList.add('dark');
+        } else {
+          doc.documentElement.classList.remove('dark');
+        }
+      };
+
+      // Apply immediately on load
+      applyTheme(document);
+
+      // FIX: Before Astro swaps the DOM, copy the current theme class
+      // to the INCOMING document so the new <html> already has it.
+      document.addEventListener('astro:before-swap', (ev) => {
+        applyTheme(ev.newDocument);
+      });
+    </script>
+  </head>
+  <body class="min-h-screen bg-background font-sans antialiased">
+    <slot />
+
+    <!-- Scroll Reveal Observer — bidirectional, re-runs after every Astro page transition -->
+    <script>
+      function initScrollReveal() {
+        const targets = document.querySelectorAll('[data-reveal], [data-reveal-stagger]');
+        if (!targets.length) return;
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              const el = entry.target;
+              const rect = entry.boundingClientRect;
+
+              if (entry.isIntersecting) {
+                // Element entered viewport — reveal it
+                el.classList.add('revealed');
+                el.classList.remove('exited');
+              } else if (rect.top < 0) {
+                // Element left from the TOP (user scrolled past it going down)
+                el.classList.add('exited');
+                el.classList.remove('revealed');
+              } else {
+                // Element left from the BOTTOM (user scrolled back up)
+                el.classList.remove('revealed');
+                el.classList.remove('exited');
+              }
+            });
+          },
+          // Use multiple thresholds for smoother tracking
+          { threshold: [0, 0.12, 0.5], rootMargin: '0px 0px -40px 0px' }
+        );
+
+        targets.forEach((el) => observer.observe(el));
+      }
+
+      // Initial load
+      initScrollReveal();
+
+      // Re-run after every Astro View Transition navigation
+      document.addEventListener('astro:page-load', initScrollReveal);
+    </script>
+  </body>
+</html>

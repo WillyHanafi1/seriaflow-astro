@@ -1,0 +1,52 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Navbar } from "@/components/blocks/navbar";
+import { Footer } from "@/components/blocks/footer";
+
+import { Background } from "@/components/background";
+import { FAQ } from "@/components/blocks/faq";
+import { Features } from "@/components/blocks/features";
+import { Hero } from "@/components/blocks/hero";
+import { Logos } from "@/components/blocks/logos";
+import { Pricing } from "@/components/blocks/pricing";
+import { ResourceAllocation } from "@/components/blocks/resource-allocation";
+import { Testimonials } from "@/components/blocks/testimonials";
+---
+
+<Layout>
+  <Navbar client:load />
+  
+  <Background className="via-muted to-muted/80">
+    <!-- Hero: no reveal — it's the first thing users see -->
+    <Hero client:visible />
+
+    <div data-reveal>
+      <Logos />
+    </div>
+
+    <div data-reveal>
+      <Features />
+    </div>
+
+    <div data-reveal>
+      <ResourceAllocation />
+    </div>
+  </Background>
+  
+  <div data-reveal>
+    <Testimonials client:visible />
+  </div>
+  
+  <Background variant="bottom">
+    <div data-reveal>
+      <Pricing client:visible />
+    </div>
+    <div data-reveal>
+      <FAQ />
+    </div>
+  </Background>
+
+  <div data-reveal>
+    <Footer />
+  </div>
+</Layout>

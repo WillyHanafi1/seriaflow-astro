@@ -1,5 +1,4 @@
-import Image from "next/image";
-import Link from "next/link";
+
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -66,11 +65,10 @@ export function ImageSection({ images, className }: ImageSectionProps) {
           key={index}
           className="relative aspect-[2/1.5] overflow-hidden rounded-2xl"
         >
-          <Image
+          <img
             src={image.src}
             alt={image.alt}
-            fill
-            className="object-cover"
+            className="h-full w-full object-cover"
           />
         </div>
       ))}
@@ -102,9 +100,9 @@ export function TextSection({
       </div>
       {ctaButton && (
         <div className="mt-8">
-          <Link href={ctaButton.href}>
+          <a href={ctaButton.href}>
             <Button size="lg">{ctaButton.text}</Button>
-          </Link>
+          </a>
         </div>
       )}
     </section>

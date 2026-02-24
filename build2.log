@@ -1,0 +1,74 @@
+[2m10.40.47[22m [34m[content][39m Syncing content
+[2m10.40.47[22m [34m[content][39m Synced content
+[2m10.40.47[22m [34m[types][39m Generated [2m78ms[22m
+[2m10.40.47[22m [34m[build][39m output: [34m"static"[39m
+[2m10.40.47[22m [34m[build][39m mode: [34m"static"[39m
+[2m10.40.47[22m [34m[build][39m directory: [34mD:\Project\Seriaflow 2\dist\[39m
+[2m10.40.47[22m [34m[build][39m Collecting build info...
+[2m10.40.47[22m [34m[build][39m [32m✓ Completed in 127ms.[39m
+[2m10.40.47[22m [34m[build][39m Building static entrypoints...
+[2m10.40.50[22m [34m[vite][39m [32m✓ built in 3.36s[39m
+[2m10.40.50[22m [34m[build][39m [32m✓ Completed in 3.53s.[39m
+
+[42m[30m building client (vite) [39m[49m
+[2m10.40.50[22m [34m[vite][39m transforming...
+[2m10.40.59[22m [34m[vite][39m [32m✓[39m 2330 modules transformed.
+[2m10.41.00[22m [34m[vite][39m rendering chunks...
+[2m10.41.00[22m [34m[vite][39m computing gzip size...
+[2m10.41.00[22m [34m[vite][39m [2mdist/[22m[36m_astro/card.Dfd3YfM0.js              [39m[1m[2m  0.15 kB[22m[1m[22m[2m │ gzip:  0.13 kB[22m
+[2m10.41.00[22m [34m[vite][39m [2mdist/[22m[36m_astro/button.CK7yj4Yd.js            [39m[1m[2m  0.18 kB[22m[1m[22m[2m │ gzip:  0.14 kB[22m
+[2m10.41.00[22m [34m[vite][39m [2mdist/[22m[36m_astro/index.DAx7k6V_.js             [39m[1m[2m  0.23 kB[22m[1m[22m[2m │ gzip:  0.17 kB[22m
+[2m10.41.00[22m [34m[vite][39m [2mdist/[22m[36m_astro/index.qFMN4P5T.js             [39m[1m[2m  0.25 kB[22m[1m[22m[2m │ gzip:  0.22 kB[22m
+[2m10.41.00[22m [34m[vite][39m [2mdist/[22m[36m_astro/check.Dh_aNEPl.js             [39m[1m[2m  0.30 kB[22m[1m[22m[2m │ gzip:  0.25 kB[22m
+[2m10.41.00[22m [34m[vite][39m [2mdist/[22m[36m_astro/chevron-right.C7rYHg2h.js     [39m[1m[2m  0.31 kB[22m[1m[22m[2m │ gzip:  0.25 kB[22m
+[2m10.41.00[22m [34m[vite][39m [2mdist/[22m[36m_astro/arrow-right.BxLlE1Qm.js       [39m[1m[2m  0.35 kB[22m[1m[22m[2m │ gzip:  0.27 kB[22m
+[2m10.41.00[22m [34m[vite][39m [2mdist/[22m[36m_astro/index.C2ovpW4z.js             [39m[1m[2m  0.40 kB[22m[1m[22m[2m │ gzip:  0.27 kB[22m
+[2m10.41.00[22m [34m[vite][39m [2mdist/[22m[36m_astro/background.Cy743v97.js        [39m[1m[2m  0.45 kB[22m[1m[22m[2m │ gzip:  0.29 kB[22m
+[2m10.41.00[22m [34m[vite][39m [2mdist/[22m[36m_astro/index.ELn8Czm2.js             [39m[1m[2m  0.54 kB[22m[1m[22m[2m │ gzip:  0.34 kB[22m
+[2m10.41.00[22m [34m[vite][39m [2mdist/[22m[36m_astro/dashed-line.DIOpA4iT.js       [39m[1m[2m  0.72 kB[22m[1m[22m[2m │ gzip:  0.35 kB[22m
+[2m10.41.00[22m [34m[vite][39m [2mdist/[22m[36m_astro/jsx-runtime.D_zvdyIk.js       [39m[1m[2m  0.73 kB[22m[1m[22m[2m │ gzip:  0.46 kB[22m
+[2m10.41.00[22m [34m[vite][39m [2mdist/[22m[36m_astro/input.BSv_CXIO.js             [39m[1m[2m  0.85 kB[22m[1m[22m[2m │ gzip:  0.46 kB[22m
+[2m10.41.00[22m [34m[vite][39m [2mdist/[22m[36m_astro/investors.B51mKLXO.js         [39m[1m[2m  1.02 kB[22m[1m[22m[2m │ gzip:  0.52 kB[22m
+[2m10.41.00[22m [34m[vite][39m [2mdist/[22m[36m_astro/card.j1Y_6KJW.js              [39m[1m[2m  1.04 kB[22m[1m[22m[2m │ gzip:  0.39 kB[22m
+[2m10.41.00[22m [34m[vite][39m [2mdist/[22m[36m_astro/index.mt1l_5Lj.js             [39m[1m[2m  2.10 kB[22m[1m[22m[2m │ gzip:  0.93 kB[22m
+[2m10.41.00[22m [34m[vite][39m [2mdist/[22m[36m_astro/index.BzKuXWUy.js             [39m[1m[2m  2.34 kB[22m[1m[22m[2m │ gzip:  1.03 kB[22m
+[2m10.41.00[22m [34m[vite][39m [2mdist/[22m[36m_astro/createLucideIcon.CpqVrh9P.js  [39m[1m[2m  2.58 kB[22m[1m[22m[2m │ gzip:  0.81 kB[22m
+[2m10.41.00[22m [34m[vite][39m [2mdist/[22m[36m_astro/about.bR8PrkgK.js             [39m[1m[2m  2.85 kB[22m[1m[22m[2m │ gzip:  1.37 kB[22m
+[2m10.41.00[22m [34m[vite][39m [2mdist/[22m[36m_astro/index.BPc9s38k.js             [39m[1m[2m  3.04 kB[22m[1m[22m[2m │ gzip:  1.42 kB[22m
+[2m10.41.00[22m [34m[vite][39m [2mdist/[22m[36m_astro/index.B04Pf2oS.js             [39m[1m[2m  3.89 kB[22m[1m[22m[2m │ gzip:  1.52 kB[22m
+[2m10.41.00[22m [34m[vite][39m [2mdist/[22m[36m_astro/button.BXHtjU_l.js            [39m[1m[2m  4.03 kB[22m[1m[22m[2m │ gzip:  1.79 kB[22m
+[2m10.41.00[22m [34m[vite][39m [2mdist/[22m[36m_astro/index.DSYoTofB.js             [39m[1m[2m  4.05 kB[22m[1m[22m[2m │ gzip:  1.89 kB[22m
+[2m10.41.00[22m [34m[vite][39m [2mdist/[22m[36m_astro/index.BgMASvzH.js             [39m[1m[2m  4.12 kB[22m[1m[22m[2m │ gzip:  1.59 kB[22m
+[2m10.41.00[22m [34m[vite][39m [2mdist/[22m[36m_astro/checkbox.DsoeSHUA.js          [39m[1m[2m  4.37 kB[22m[1m[22m[2m │ gzip:  1.88 kB[22m
+[2m10.41.00[22m [34m[vite][39m [2mdist/[22m[36m_astro/pricing-table.Dvxr0H-f.js     [39m[1m[2m  4.49 kB[22m[1m[22m[2m │ gzip:  1.50 kB[22m
+[2m10.41.00[22m [34m[vite][39m [2mdist/[22m[36m_astro/pricing.DVRzR7wK.js           [39m[1m[2m  5.31 kB[22m[1m[22m[2m │ gzip:  2.25 kB[22m
+[2m10.41.00[22m [34m[vite][39m [2mdist/[22m[36m_astro/faq.BLKAAWMn.js               [39m[1m[2m  7.38 kB[22m[1m[22m[2m │ gzip:  2.57 kB[22m
+[2m10.41.00[22m [34m[vite][39m [2mdist/[22m[36m_astro/hero.ETofL_Fy.js              [39m[1m[2m  8.21 kB[22m[1m[22m[2m │ gzip:  3.56 kB[22m
+[2m10.41.00[22m [34m[vite][39m [2mdist/[22m[36m_astro/index.BIIuLtGZ.js             [39m[1m[2m  8.37 kB[22m[1m[22m[2m │ gzip:  3.28 kB[22m
+[2m10.41.00[22m [34m[vite][39m [2mdist/[22m[36m_astro/testimonials.BHpGEYL0.js      [39m[1m[2m 26.65 kB[22m[1m[22m[2m │ gzip: 10.50 kB[22m
+[2m10.41.00[22m [34m[vite][39m [2mdist/[22m[36m_astro/utils.BQHNewu7.js             [39m[1m[2m 26.69 kB[22m[1m[22m[2m │ gzip:  8.42 kB[22m
+[2m10.41.00[22m [34m[vite][39m [2mdist/[22m[36m_astro/navbar.CBi-5thP.js            [39m[1m[2m 29.07 kB[22m[1m[22m[2m │ gzip:  9.97 kB[22m
+[2m10.41.00[22m [34m[vite][39m [2mdist/[22m[36m_astro/proxy.DeQWriZc.js             [39m[1m[2m118.93 kB[22m[1m[22m[2m │ gzip: 39.03 kB[22m
+[2m10.41.00[22m [34m[vite][39m [2mdist/[22m[36m_astro/contact.C3DV4ZkO.js           [39m[1m[2m165.08 kB[22m[1m[22m[2m │ gzip: 53.05 kB[22m
+[2m10.41.00[22m [34m[vite][39m [2mdist/[22m[36m_astro/client.BgplVUld.js            [39m[1m[2m182.74 kB[22m[1m[22m[2m │ gzip: 57.60 kB[22m
+[2m10.41.00[22m [34m[vite][39m [32m✓ built in 9.29s[39m
+
+[42m[30m generating static routes [39m[49m
+[2m10.41.01[22m [32m▶[39m src/pages/about.astro
+[2m10.41.01[22m   [34m└─[39m [2m/about/index.html[22m [2m(+68ms)[22m 
+[2m10.41.01[22m [32m▶[39m src/pages/contact.astro
+[2m10.41.01[22m   [34m└─[39m [2m/contact/index.html[22m [2m(+25ms)[22m 
+[2m10.41.01[22m [32m▶[39m src/pages/faq.astro
+[2m10.41.01[22m   [34m└─[39m [2m/faq/index.html[22m [2m(+20ms)[22m 
+[2m10.41.01[22m [32m▶[39m src/pages/login.astro
+[2m10.41.01[22m   [34m└─[39m [2m/login/index.html[22m [2m(+72ms)[22m 
+[2m10.41.01[22m [32m▶[39m src/pages/pricing.astro
+[2m10.41.01[22m   [34m└─[39m [2m/pricing/index.html[22m [2m(+51ms)[22m 
+[2m10.41.01[22m [32m▶[39m src/pages/signup.astro
+[2m10.41.01[22m   [34m└─[39m [2m/signup/index.html[22m [2m(+31ms)[22m 
+[2m10.41.01[22m [32m▶[39m src/pages/index.astro
+[2m10.41.01[22m   [34m└─[39m [2m/index.html[22m [2m(+39ms)[22m 
+[2m10.41.02[22m [32m✓ Completed in 1.73s.
+[39m
+[2m10.41.02[22m [34m[build][39m 7 page(s) built in [1m14.82s[22m
+[2m10.41.02[22m [34m[build][39m [1mComplete![22m

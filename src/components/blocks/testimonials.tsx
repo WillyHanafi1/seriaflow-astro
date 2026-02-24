@@ -1,4 +1,3 @@
-import Image from "next/image";
 
 import { ArrowRight } from "lucide-react";
 
@@ -116,11 +115,10 @@ export const Testimonials = ({
                     <Card className="bg-muted h-full overflow-hidden border-none">
                       <CardContent className="flex h-full flex-col p-0">
                         <div className="relative h-[288px] lg:h-[328px]">
-                          <Image
+                          <img
                             src={testimonial.image}
                             alt={testimonial.author}
-                            fill
-                            className="object-cover object-top"
+                            className="h-full w-full object-cover object-top"
                           />
                         </div>
                         <div className="flex flex-1 flex-col justify-between gap-10 p-6">

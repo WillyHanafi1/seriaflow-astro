@@ -1,5 +1,4 @@
-import Image from "next/image";
-import Link from "next/link";
+
 
 import { ChevronRight } from "lucide-react";
 
@@ -53,16 +52,15 @@ export const Features = () => {
               <div key={i} className="flex flex-1 max-md:flex-col">
                 <div className="flex-1 p-4 pe-0! md:p-6">
                   <div className="relative aspect-[1.28/1] overflow-hidden">
-                    <Image
+                    <img
                       src={item.image}
                       alt={`${item.title} interface`}
-                      fill
-                      className="object-cover object-left-top ps-4 pt-2"
+                      className="h-full w-full object-cover object-left-top ps-4 pt-2"
                     />
                     <div className="from-background absolute inset-0 z-10 bg-linear-to-t via-transparent to-transparent" />
                   </div>
 
-                  <Link
+                  <a
                     href="#"
                     className={
                       "group flex items-center justify-between gap-4 pe-4 pt-4 md:pe-6 md:pt-6"
@@ -74,7 +72,7 @@ export const Features = () => {
                     <div className="rounded-full border p-2">
                       <ChevronRight className="size-6 transition-transform group-hover:translate-x-1 lg:size-9" />
                     </div>
-                  </Link>
+                  </a>
                 </div>
                 {i < items.length - 1 && (
                   <div className="relative hidden md:block">
