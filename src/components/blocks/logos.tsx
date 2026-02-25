@@ -95,6 +95,10 @@ export const Logos = () => {
     },
   ];
 
+  const allCompanies = [...topRowCompanies, ...bottomRowCompanies];
+  const firstRow = allCompanies.slice(0, 6);
+  const secondRow = allCompanies.slice(6);
+
   return (
     <section className="pb-28 lg:pb-32 overflow-hidden">
       <div className="container space-y-10 lg:space-y-16">
@@ -108,80 +112,99 @@ export const Logos = () => {
           </h2>
         </div>
 
-        <div className="flex w-full flex-col items-center gap-8">
-          {/* Top row - 5 logos */}
-          <LogoRow companies={topRowCompanies} gridClassName="grid-cols-5" />
+        {/* Desktop: animated marquee (scrolling left and right) */}
+        <div className="hidden md:block">
+          <div className="relative overflow-hidden w-full max-w-[100vw]">
+            <div className="flex flex-col gap-18 items-center">
+              {/* First row - scrolling left */}
+              <div className="flex w-max animate-marquee gap-20 pr-20">
+                {[...firstRow, ...firstRow].map((company, i) => (
+                  <a
+                    href={company.href}
+                    target="_blank"
+                    key={i}
+                    title={company.name}
+                    className="dark:bg-[#D3D3D3] grid aspect-square size-16 flex-shrink-0 place-items-center rounded-2xl p-2 transition-opacity hover:opacity-70 lg:size-20"
+                  >
+                    <img
+                      src={company.logo}
+                      alt={`${company.name} logo`}
+                      width={company.width}
+                      height={company.height}
+                      className="object-contain"
+                    />
+                  </a>
+                ))}
+              </div>
+              {/* Second row - scrolling right */}
+              <div className="flex w-max animate-marquee-reverse gap-20 pr-20">
+                {[...secondRow, ...secondRow].map((company, i) => (
+                  <a
+                    href={company.href}
+                    target="_blank"
+                    key={i}
+                    title={company.name}
+                    className="dark:bg-[#D3D3D3] grid aspect-square size-16 flex-shrink-0 place-items-center rounded-2xl p-2 transition-opacity hover:opacity-70 lg:size-20"
+                  >
+                    <img
+                      src={company.logo}
+                      alt={`${company.name} logo`}
+                      width={company.width}
+                      height={company.height}
+                      className="object-contain"
+                    />
+                  </a>
+                ))}
+              </div>
+            </div>
+            {/* Gradient fades removed as requested */}
+          </div>
+        </div>
 
-          {/* Bottom row - 6 logos */}
-          <LogoRow
-            companies={bottomRowCompanies}
-            gridClassName="grid-cols-6"
-            direction="right"
-          />
+        {/* Mobile: marquee */}
+        <div className="md:hidden overflow-hidden">
+          <div className="flex flex-col gap-6">
+            <div className="flex w-max animate-marquee gap-8 pr-8">
+              {[...firstRow, ...firstRow].map((company, index) => (
+                <a
+                  href={company.href}
+                  target="_blank"
+                  key={index}
+                  title={company.name}
+                  className="dark:bg-[#D3D3D3] grid aspect-square size-16 flex-shrink-0 place-items-center rounded-2xl p-2"
+                >
+                  <img
+                    src={company.logo}
+                    alt={`${company.name} logo`}
+                    width={company.width}
+                    height={company.height}
+                    className="object-contain"
+                  />
+                </a>
+              ))}
+            </div>
+            <div className="flex w-max animate-marquee-reverse gap-8 pr-8">
+              {[...secondRow, ...secondRow].map((company, index) => (
+                <a
+                  href={company.href}
+                  target="_blank"
+                  key={index}
+                  title={company.name}
+                  className="dark:bg-[#D3D3D3] grid aspect-square size-16 flex-shrink-0 place-items-center rounded-2xl p-2"
+                >
+                  <img
+                    src={company.logo}
+                    alt={`${company.name} logo`}
+                    width={company.width}
+                    height={company.height}
+                    className="object-contain"
+                  />
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
-  );
-};
-
-type LogoRowProps = {
-  companies: Company[];
-  gridClassName: string;
-  direction?: "left" | "right";
-};
-
-const LogoRow = ({ companies, gridClassName, direction }: LogoRowProps) => {
-  return (
-    <>
-      {/* Desktop static version */}
-      <div className="hidden md:block">
-        <div
-          className={cn(
-            "grid items-center justify-items-center gap-x-20 lg:gap-x-28",
-            gridClassName,
-          )}
-        >
-          {companies.map((company, index) => (
-            <a href={company.href} target="_blank" key={index} title={company.name}>
-              <img
-                src={company.logo}
-                alt={`${company.name} logo`}
-                width={company.width}
-                height={company.height}
-                className="object-contain transition-opacity hover:opacity-70"
-              />
-            </a>
-          ))}
-        </div>
-      </div>
-
-      {/* Mobile CSS marquee version */}
-      <div className="md:hidden overflow-hidden">
-        <div
-          className={cn(
-            "flex gap-12 w-max",
-            direction === "right" ? "animate-marquee-reverse" : "animate-marquee"
-          )}
-        >
-          {[...companies, ...companies].map((company, index) => (
-            <a
-              href={company.href}
-              target="_blank"
-              key={index}
-              className="mx-4 inline-block transition-opacity hover:opacity-70 flex-shrink-0"
-              title={company.name}
-            >
-              <img
-                src={company.logo}
-                alt={`${company.name} logo`}
-                width={company.width}
-                height={company.height}
-                className="object-contain"
-              />
-            </a>
-          ))}
-        </div>
-      </div>
-    </>
   );
 };
