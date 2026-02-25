@@ -20,6 +20,7 @@ import {
 import { cn } from "@/lib/utils";
 
 const ITEMS = [
+  { label: "Home", href: "/" },
   {
     label: "Features",
     href: "#features",
@@ -90,15 +91,13 @@ export const Navbar = () => {
       )}
     >
       <div className="flex items-center justify-between px-6 py-3">
-        <a href="/" className="flex shrink-0 items-center gap-2">
+        <div className="flex items-center gap-4">
           <img
-            src="/logo.svg"
-            alt="logo"
-            width={94}
-            height={18}
-            className="dark:invert"
+            src="/favicon.png"
+            alt="Seriaflow"
+            className="h-7 w-auto -translate-y-px rounded-md object-contain"
           />
-        </a>
+        </div>
 
         {/* Desktop Navigation */}
         <NavigationMenu className="max-lg:hidden">
@@ -138,8 +137,8 @@ export const Navbar = () => {
                   <a
                     href={link.href}
                     className={cn(
-                      "relative bg-transparent px-1.5 text-sm font-medium transition-opacity hover:opacity-75",
-                      pathname === link.href && "text-muted-foreground",
+                      "flex h-9 items-center justify-center rounded-md px-1.5 text-sm font-medium transition-opacity hover:opacity-75",
+                      pathname === link.href && "text-foreground font-semibold",
                     )}
                   >
                     {link.label}
@@ -258,7 +257,7 @@ export const Navbar = () => {
                 href={link.href}
                 className={cn(
                   "text-primary hover:text-primary/80 py-4 text-base font-medium transition-colors first:pt-0 last:pb-0",
-                  pathname === link.href && "text-muted-foreground",
+                  pathname === link.href && "text-foreground font-bold",
                 )}
                 onClick={() => setIsMenuOpen(false)}
               >

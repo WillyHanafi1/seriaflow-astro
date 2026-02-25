@@ -1,0 +1,314 @@
+# 📋 Analisis Template & Requirements Konversi ke AI Agency Website
+
+## Ringkasan Template
+
+Template ini adalah **"Mainline"** — sebuah template SaaS untuk project management tool (mirip Linear/Jira), dibangun dengan:
+
+| Tech Stack | Detail |
+|---|---|
+| Framework | **Astro 5.3** + React 19 (island architecture) |
+| Styling | **TailwindCSS v4** + shadcn/ui components |
+| Animations | **Framer Motion** + CSS scroll-reveal |
+| UI Effects | **Vortex** particle background (sudah di Hero) |
+| Theme | Dark/Light toggle (default dark) |
+| Transitions | Astro View Transitions (SPA-like navigation) |
+| Forms | React Hook Form + Zod validation |
+| Carousel | Embla Carousel (testimonials) |
+
+> [!IMPORTANT]
+> Template sudah **sebagian di-custom** — title di Layout sudah "Seriaflow — AI Automation Agency" dan Hero sudah berisi teks "Seriaflow AI Agency". Namun sebagian besar konten masih **"Mainline"** (template asli).
+
+---
+
+## Arsitektur Halaman
+
+```mermaid
+graph TD
+    A["🏠 index.astro"] --> B[Navbar]
+    A --> C[Hero + Vortex]
+    A --> D[Logos - client companies]
+    A --> E[Features - 3 cards]
+    A --> F[ResourceAllocation - 5 features]
+    A --> G[Testimonials - carousel]
+    A --> H[Pricing - 3 plans]
+    A --> I[FAQ - accordion]
+    A --> J[Footer]
+    
+    K["ℹ️ about.astro"] --> B
+    K --> L[AboutHero - stats]
+    K --> M[About - team story + images]
+    K --> N[Investors - 5 people]
+    K --> J
+    
+    O["💰 pricing.astro"] --> B
+    O --> H
+    O --> P[PricingTable - comparison]
+    O --> J
+    
+    Q["📧 contact.astro"] --> B
+    Q --> R[Contact - form + info]
+    Q --> J
+    
+    S["❓ faq.astro"] --> B
+    S --> I
+    S --> J
+    
+    T["🔐 login.astro"]
+    U["📝 signup.astro"]
+    V["🔒 privacy.mdx"]
+```
+
+---
+
+## Konten yang Perlu Diubah (File-by-File)
+
+### 1. 🔶 [hero.tsx](file:///d:/ProjectAI/Website-Seriaflow2/src/components/blocks/hero.tsx) — Hero Section
+
+| Item | Current (Template) | Need to Change |
+|---|---|---|
+| H1 Title | `Seriaflow AI Agency` | ✅ Sudah custom, **tapi bisa dipoles** |
+| Subtitle | `Automate your business with cutting-edge AI workflows...` | ✅ Sudah custom |
+| Feature list | `Tailored workflows`, `Cross-team projects`, `Milestones`, `Progress insights` | ❌ Masih untuk PM tool → **Ubah ke AI services** |
+| CTA buttons | `Get started` → `/contact`, `View pricing` → `/pricing` | ✅ OK |
+| Hero image | [/hero.webp](file:///d:/ProjectAI/Website-Seriaflow2/public/hero.webp) (generic dashboard screenshot) | ❌ **Ganti** ke AI/automation visual |
+
+---
+
+### 2. 🔶 [navbar.tsx](file:///d:/ProjectAI/Website-Seriaflow2/src/components/blocks/navbar.tsx) — Navigation
+
+| Item | Current | Need to Change |
+|---|---|---|
+| Logo | [/logo.svg](file:///d:/ProjectAI/Website-Seriaflow2/public/logo.svg) (Mainline logo) | ❌ **Ganti** ke Seriaflow logo |
+| Menu items | Features, About Us, Pricing, FAQ, Contact | ⚠️ Bisa dipakai, tapi **dropdown content perlu diubah** |
+| Dropdown "Features" | `Modern product teams` + `Resource Allocation` (Mainline copy) | ❌ **Ubah** ke AI service categories |
+| GitHub icon link | `https://github.com/shadcnblocks/mainline-nextjs-template` | ❌ **Hapus atau ganti** ke social media |
+| Login button | Links to `/login` | ⚠️ Pertimbangkan: apakah perlu login/signup? |
+
+---
+
+### 3. 🔶 [logos.tsx](file:///d:/ProjectAI/Website-Seriaflow2/src/components/blocks/logos.tsx) — Client Logos
+
+| Item | Current | Need to Change |
+|---|---|---|
+| Title | `Powering the world's best product teams...` | ❌ **Ubah** ke "Trusted by businesses" / equivalent |
+| Top row logos | Mercury, Watershed, Retool, Descript | ❌ **Ganti** ke real client logos atau tech partner logos |
+| Bottom row logos | Perplexity, Monzo, Ramp, Raycast, Arc | ❌ **Ganti** semua |
+| SVG files | 9 SVG logos in `/public/logos/` | ❌ **Ganti** semua file |
+
+---
+
+### 4. 🔶 [features.tsx](file:///d:/ProjectAI/Website-Seriaflow2/src/components/blocks/features.tsx) — Features Section
+
+| Item | Current | Need to Change |
+|---|---|---|
+| Tagline | `MEASURE TWICE. CUT ONCE.` | ❌ **Ubah** ke AI-relevant tagline |
+| Title | `Made for modern product teams` | ❌ **Ubah** |
+| Description | `Mainline is built on the habits...` | ❌ **Ubah** ke Seriaflow description |
+| 3 Feature cards | `Purpose-built for product dev`, `Manage projects end-to-end`, `Build momentum` | ❌ **Ubah** ke AI services |
+| Card images | `/features/triage-card.svg`, `/features/cycle-card.svg`, `/features/overview-card.svg` | ❌ **Ganti** ke AI-related visuals |
+
+---
+
+### 5. 🔶 [resource-allocation.tsx](file:///d:/ProjectAI/Website-Seriaflow2/src/components/blocks/resource-allocation.tsx) — Feature Details
+
+| Item | Current | Need to Change |
+|---|---|---|
+| Title | `Mainline your resource allocation and execution` | ❌ **Ubah** |
+| Top items | `Reusable issue templates`, `Simplify your stack` | ❌ **Ubah** ke AI capabilities |
+| Bottom items | `Graveyard it`, `Task discussions`, `Notifications` (lorem ipsum) | ❌ **Ubah** semua |
+| Images | 4 images in `/public/resource-allocation/` | ❌ **Ganti** semua |
+| Tech logos | Jira, Excel, Notion, Word, Monday, Drive, Asana (replace your stack) | ❌ **Ganti** ke tools yang Seriaflow integrasikan |
+
+---
+
+### 6. 🔶 [testimonials.tsx](file:///d:/ProjectAI/Website-Seriaflow2/src/components/blocks/testimonials.tsx) — Testimonials
+
+| Item | Current | Need to Change |
+|---|---|---|
+| Title | `Trusted by product builders` | ❌ **Ubah** |
+| Description | `Mainline is built on the habits...` | ❌ **Ubah** |
+| 4 testimonials | Fake people (Amy Chase, Jonas Kotara, etc.) with joke quotes | ❌ **Ganti** semua |
+| Photos | 4 images in `/public/testimonials/` | ❌ **Ganti** atau **hapus** (gunakan placeholder/avatar) |
+| Button | `Read our Customer Stories` | ⚠️ Ubah atau hapus (jika belum ada case studies) |
+
+---
+
+### 7. 🔶 [pricing.tsx](file:///d:/ProjectAI/Website-Seriaflow2/src/components/blocks/pricing.tsx) — Pricing Cards
+
+| Item | Current | Need to Change |
+|---|---|---|
+| Description | `Use Mainline for free...` | ❌ **Ubah** |
+| Plans | `Free ($0)`, `Startup ($8)`, `Enterprise ($8)` | ❌ **Ubah** ke AI Agency pricing |
+| Features per plan | PM-tool features (issues, teams, integrations) | ❌ **Ubah** ke AI service features |
+| Pricing model | Per user/month (SaaS model) | ❌ **Ubah** ke project-based / retainer pricing? |
+
+---
+
+### 8. 🔶 [pricing-table.tsx](file:///d:/ProjectAI/Website-Seriaflow2/src/components/blocks/pricing-table.tsx) — Comparison Table
+
+| Item | Current | Need to Change |
+|---|---|---|
+| Plan names | Free, Startup, Enterprise | ❌ **Ubah** |
+| Features | Members, Transactions, Teams, Reporting, `Mainline AI`, Admin roles, etc. | ❌ **Ubah** semua ke AI service features |
+
+---
+
+### 9. 🔶 [faq.tsx](file:///d:/ProjectAI/Website-Seriaflow2/src/components/blocks/faq.tsx) — FAQ
+
+| Item | Current | Need to Change |
+|---|---|---|
+| Categories | Support, Your account, Other questions | ❌ **Ubah** ke AI Agency FAQ categories |
+| Questions | Generic/joke questions (`How do I update my account without breaking my laptop?`) | ❌ **Ubah** semua |
+| Answers | Lorem ipsum | ❌ **Tulis jawaban nyata** |
+
+---
+
+### 10. 🔶 [footer.tsx](file:///d:/ProjectAI/Website-Seriaflow2/src/components/blocks/footer.tsx) — Footer
+
+| Item | Current | Need to Change |
+|---|---|---|
+| CTA title | `Start your free trial today` | ❌ **Ubah** (no free trial for agency) |
+| Description | `Mainline is the fit-for-purpose tool...` | ❌ **Ubah** |
+| CTA button | `Get template` → GitHub link | ❌ **Ubah** ke `Contact Us` atau `Book a Call` |
+| Social links | `Xwitter` → `@ausrobdev`, LinkedIn → `#` | ❌ **Ubah** ke Seriaflow socials |
+| SVG logo | Large "mainline" text SVG in footer | ❌ **Ganti** ke Seriaflow branding |
+
+---
+
+### 11. 🔶 [about-hero.tsx](file:///d:/ProjectAI/Website-Seriaflow2/src/components/blocks/about-hero.tsx) — About Hero
+
+| Item | Current | Need to Change |
+|---|---|---|
+| Title | `Democratising quality software` | ❌ **Ubah** |
+| Subtitle | `Mainline is bringing modern software to life with AI magic` | ❌ **Ubah** |
+| Description | Generic Mainline company description | ❌ **Ubah** ke Seriaflow story |
+| Stats | `$150M Raised`, `20K Companies`, `1.3B Monthly transactions`, `1.5K Connections/min` | ❌ **Ubah** ke real/relevant stats |
+
+---
+
+### 12. 🔶 [about.tsx](file:///d:/ProjectAI/Website-Seriaflow2/src/components/blocks/about.tsx) — About Content
+
+| Item | Current | Need to Change |
+|---|---|---|
+| Team story | `We started building Mainline in 2019...` | ❌ **Ubah** ke Seriaflow story |
+| CTA | `View open roles` → `/careers` | ⚠️ `/careers` page doesn't exist — hapus atau buat |
+| Images | 4 images in `/public/about/` (generic workspace photos) | ❌ **Ganti** |
+
+---
+
+### 13. 🔶 [investors.tsx](file:///d:/ProjectAI/Website-Seriaflow2/src/components/blocks/investors.tsx) — Investors
+
+| Item | Current | Need to Change |
+|---|---|---|
+| Title | `Our investors` | ⚠️ **Ganti** ke "Our Team" / "Our Partners" / hapus section |
+| 5 investors | Fake names + companies (Blackbird Ventures, etc.) | ❌ **Ubah** atau hapus |
+| Photos | 5 images in `/public/investors/` | ❌ **Ganti** |
+
+---
+
+### 14. 🔶 [contact.tsx](file:///d:/ProjectAI/Website-Seriaflow2/src/components/blocks/contact.tsx) — Contact Page
+
+| Item | Current | Need to Change |
+|---|---|---|
+| Subtitle | `Hopefully this form gets through our spam filters` | ❌ **Ubah** ke professional copy |
+| Office address | `1 Carlsberg Close, 1260 Hillview, Australia` | ❌ **Ubah** ke alamat real |
+| Emails | `careers@example.com`, `press@example.com` | ❌ **Ubah** ke email Seriaflow |
+| Social links | Facebook, Xwitter → `@ausrobdev`, LinkedIn | ❌ **Ubah** ke Seriaflow socials |
+
+---
+
+### 15. 🔶 [Layout.astro](file:///d:/ProjectAI/Website-Seriaflow2/src/layouts/Layout.astro) — Global
+
+| Item | Current | Need to Change |
+|---|---|---|
+| Title | `Seriaflow — AI Automation Agency` | ✅ Sudah custom |
+| Meta description | `Seriaflow helps businesses grow with AI automation...` | ✅ Sudah custom |
+| Favicon | `/favicon.ico` | ⚠️ Check apakah sudah Seriaflow |
+| OG Image | `/og-image.jpg` | ❌ **Ganti** ke Seriaflow branded |
+
+---
+
+### 16. 🔶 Pages: `login.astro` & `signup.astro`
+
+| Decision | Options |
+|---|---|
+| Keep auth pages? | Jika agency website murni → **HAPUS** (tidak perlu login/signup) |
+| Atau redirect? | Jika ada client portal → ubah ke client portal login |
+
+---
+
+## 📌 Prioritas & Categorized Requirements
+
+### 🔴 P0 — Wajib (Branding & Identity)
+
+1. **Logo** — Buat/pasang Seriaflow logo (`/public/logo.svg`)
+2. **Footer SVG** — Ganti large "mainline" text ke Seriaflow
+3. **OG Image** — Buat branded open graph image
+4. **Favicon** — Ganti ke Seriaflow favicon
+5. **Semua "Mainline" text references** — Replace di semua file
+
+### 🟠 P1 — Content Overhaul
+
+6. **Hero features** — Ubah dari PM features ke AI Agency services (misal: AI Chatbots, Workflow Automation, AI Integration, Custom AI Solutions)
+7. **Features section** — Design 3 layanan utama Seriaflow + buat visual cards baru
+8. **ResourceAllocation section** — Transformasi jadi showcase AI capabilities
+9. **Pricing** — Redesign plans sesuai model bisnis AI Agency
+10. **FAQ** — Tulis pertanyaan & jawaban yang relevan untuk AI Agency
+11. **Footer CTA** — Ubah ke "Book a Consultation" / "Schedule a Demo"
+12. **Contact info** — Isi dengan data real Seriaflow
+
+### 🟡 P2 — Social Proof & Credibility
+
+13. **Client logos** — Ganti ke real clients atau technology partner logos (n8n, OpenAI, WhatsApp, Odoo, etc.)
+14. **Testimonials** — Replace dengan real/realistic testimonials
+15. **About page** — Tulis cerita Seriaflow, ganti stats, ganti images
+16. **Investors section** — Ubah ke "Our Team" atau "Partners"
+
+### 🟢 P3 — Pages & Structure
+
+17. **Login/Signup pages** — Hapus jika tidak perlu, atau ubah jadi client portal
+18. **Privacy page** — Update with Seriaflow info
+19. **Navbar dropdown** — Customize Features dropdown menu items
+20. **GitHub icon** — Hapus/ganti ke WhatsApp atau social icon lain
+
+### 🔵 P4 — Visual & Assets
+
+21. **Hero image** — Ganti `/hero.webp` (dashboard screenshot → AI/automation visual)
+22. **Feature images** — Ganti 3 SVGs di `/features/`
+23. **Resource allocation images** — Ganti 4 images + tech logos
+24. **About images** — Ganti 4 team/workspace photos
+25. **Testimonial photos** — Ganti 4 portrait photos
+
+### ⚪ P5 — Backend / Functionality
+
+26. **Contact form** — Connect ke real backend (n8n webhook? Email API?)
+27. **Form fields** — Adjust "Number of employees" options jika perlu
+28. **Analytics** — Tambahkan Google Analytics / Plausible
+
+---
+
+## 🎯 Keputusan yang Diperlukan dari Kamu
+
+Sebelum mulai implementasi, aku butuh jawaban untuk:
+
+1. **Nama layanan/services Seriaflow apa saja?** (untuk Hero features, Features section, Pricing)
+   - Contoh: AI Chatbots, Workflow Automation, Odoo Integration, Custom AI Agents
+
+2. **Model pricing Seriaflow?**
+   - Per project? Monthly retainer? Tiered packages?
+   - Berapa range harga?
+
+3. **Info kontak real?**
+   - Alamat (atau remote-only?)
+   - Email bisnis
+   - Social media links (Instagram, LinkedIn, WhatsApp, etc.)
+
+4. **Apakah ada logo Seriaflow** yang sudah jadi?
+
+5. **Client logos** — Prefer tech partner logos (OpenAI, n8n, WhatsApp, Odoo) atau client/industry logos?
+
+6. **Login/Signup pages** — Hapus atau keep untuk future client portal?
+
+7. **Testimonials** — Tulis yang realistis (placeholder) atau skip section dulu?
+
+8. **Yang mau dikerjakan duluan** — Seluruh konten sekaligus, atau phased approach?
