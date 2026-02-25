@@ -4,6 +4,7 @@ import { Navbar } from "@/components/blocks/navbar";
 import { Footer } from "@/components/blocks/footer";
 
 import { Background } from "@/components/background";
+import Contact from "@/components/blocks/contact";
 import { FAQ } from "@/components/blocks/faq";
 import { Features } from "@/components/blocks/features";
 import { Hero } from "@/components/blocks/hero";
@@ -45,6 +46,10 @@ import { Testimonials } from "@/components/blocks/testimonials";
       <FAQ />
     </div>
   </Background>
+
+  <div data-reveal>
+    <Contact client:visible />
+  </div>
 
   <div data-reveal>
     <Footer />

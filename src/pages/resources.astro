@@ -1,0 +1,17 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Navbar } from "@/components/blocks/navbar";
+import { Footer } from "@/components/blocks/footer";
+import { Background } from "@/components/background";
+import { Resources } from "@/components/blocks/resources";
+---
+
+<Layout>
+  <Navbar client:load />
+  
+  <Background client:load>
+    <Resources client:load />
+  </Background>
+  
+  <Footer />
+</Layout>

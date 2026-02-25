@@ -1,63 +1,50 @@
 import React from "react";
 
-
-
-
-
 import { ContactForm } from "@/components/blocks/contact-form";
 import { DashedLine } from "@/components/dashed-line";
 
 const contactInfo = [
   {
-    title: "Corporate office",
-    content: (
-      <p className="text-muted-foreground mt-3">
-        1 Carlsberg Close
-        <br />
-        1260 Hillview, Australia
-      </p>
-    ),
-  },
-  {
-    title: "Email us",
+    title: "Email",
     content: (
       <div className="mt-3">
-        <div>
-          <p className="">Careers</p>
-          <a
-            href="mailto:careers@example.com"
-            className="text-muted-foreground hover:text-foreground"
-          >
-            careers@example.com
-          </a>
-        </div>
-        <div className="mt-1">
-          <p className="">Press</p>
-          <a
-            href="mailto:press@example.com"
-            className="text-muted-foreground hover:text-foreground"
-          >
-            press@example.com
-          </a>
-        </div>
+        <a
+          href="mailto:hello@seriaflow.com"
+          className="text-muted-foreground hover:text-foreground"
+        >
+          hello@seriaflow.com
+        </a>
       </div>
     ),
   },
   {
-    title: "Follow us",
+    title: "WhatsApp",
     content: (
-      <div className="mt-3 flex gap-6 lg:gap-10">
-        <a href="#" className="text-muted-foreground hover:text-foreground">
-          Facebook
-        </a>
+      <div className="mt-3">
         <a
-          href="https://x.com/ausrobdev"
+          href="https://wa.me/6281234567890"
           className="text-muted-foreground hover:text-foreground"
         >
-          Xwitter
+          +62 812-3456-7890
         </a>
-        <a href="#" className="text-muted-foreground hover:text-foreground">
+      </div>
+    ),
+  },
+  {
+    title: "Ikuti Kami",
+    content: (
+      <div className="mt-3 flex gap-6 lg:gap-10">
+        <a
+          href="https://linkedin.com/company/seriaflow"
+          className="text-muted-foreground hover:text-foreground"
+        >
           LinkedIn
+        </a>
+        <a
+          href="https://instagram.com/seriaflow"
+          className="text-muted-foreground hover:text-foreground"
+        >
+          Instagram
         </a>
       </div>
     ),
@@ -66,19 +53,20 @@ const contactInfo = [
 
 export default function Contact() {
   return (
-    <section className="py-28 lg:py-32 lg:pt-44">
+    <section id="contact" className="py-28 lg:py-32">
       <div className="container max-w-2xl">
-        <h1 className="text-center text-2xl font-semibold tracking-tight md:text-4xl lg:text-5xl">
-          Contact us
-        </h1>
+        <h2 className="text-center text-2xl font-semibold tracking-tight md:text-4xl lg:text-5xl">
+          Hubungi Kami
+        </h2>
         <p className="text-muted-foreground mt-4 text-center leading-snug font-medium lg:mx-auto">
-          Hopefully this form gets through our spam filters.
+          Ada pertanyaan atau ingin diskusi project? Isi form di bawah dan kami
+          akan merespons dalam 24 jam.
         </p>
 
         <div className="mt-10 flex justify-between gap-8 max-sm:flex-col md:mt-14 lg:mt-20 lg:gap-12">
           {contactInfo.map((info, index) => (
             <div key={index}>
-              <h2 className="font-medium">{info.title}</h2>
+              <h3 className="font-medium">{info.title}</h3>
               {info.content}
             </div>
           ))}
@@ -88,7 +76,7 @@ export default function Contact() {
 
         {/* Inquiry Form */}
         <div className="mx-auto">
-          <h2 className="mb-4 text-lg font-semibold">Inquiries</h2>
+          <h3 className="mb-4 text-lg font-semibold">Kirim Pesan</h3>
           <ContactForm />
         </div>
       </div>

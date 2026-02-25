@@ -15,31 +15,31 @@ interface FeatureSection {
   category: string;
   features: {
     name: string;
-    free: true | false | null | string;
-    startup: true | false | null | string;
-    enterprise: true | false | null | string;
+    starter: true | false | null | string;
+    growth: true | false | null | string;
+    custom: true | false | null | string;
   }[];
 }
 
 const pricingPlans = [
   {
-    name: "Free",
+    name: "Starter",
     button: {
-      text: "Get started",
+      text: "Mulai Sekarang",
       variant: "outline" as const,
     },
   },
   {
-    name: "Startup",
+    name: "Growth",
     button: {
-      text: "Get started",
+      text: "Pilih Growth",
       variant: "outline" as const,
     },
   },
   {
-    name: "Enterprise",
+    name: "Custom",
     button: {
-      text: "Get a demo",
+      text: "Hubungi Kami",
       variant: "outline" as const,
     },
   },
@@ -47,95 +47,101 @@ const pricingPlans = [
 
 const comparisonFeatures: FeatureSection[] = [
   {
-    category: "Usage",
+    category: "Chatbot & AI",
     features: [
       {
-        name: "Members",
-        free: "Unlimited",
-        startup: "Unlimited",
-        enterprise: "Unlimited",
+        name: "WhatsApp AI Chatbot",
+        starter: true,
+        growth: true,
+        custom: true,
       },
       {
-        name: "Transactions",
-        free: "250",
-        startup: "Unlimited",
-        enterprise: "Unlimited",
+        name: "Custom conversation flows",
+        starter: "Basic",
+        growth: "Advanced",
+        custom: "Unlimited",
       },
       {
-        name: "Teams",
-        free: "2",
-        startup: "Unlimited",
-        enterprise: "Unlimited",
+        name: "AI-powered responses",
+        starter: true,
+        growth: true,
+        custom: true,
+      },
+      {
+        name: "Custom AI Agents",
+        starter: null,
+        growth: null,
+        custom: true,
       },
     ],
   },
   {
-    category: "Features",
+    category: "Automation & Integration",
     features: [
       {
-        name: "Reporting",
-        free: true,
-        startup: true,
-        enterprise: true,
+        name: "Workflow automations",
+        starter: "1",
+        growth: "3",
+        custom: "Unlimited",
       },
       {
-        name: "Analytics",
-        free: true,
-        startup: true,
-        enterprise: true,
+        name: "Odoo / CRM integration",
+        starter: null,
+        growth: true,
+        custom: true,
       },
       {
-        name: "Import and export",
-        free: true,
-        startup: true,
-        enterprise: true,
+        name: "n8n workflows",
+        starter: null,
+        growth: true,
+        custom: true,
       },
       {
-        name: "Integrations",
-        free: true,
-        startup: true,
-        enterprise: true,
+        name: "Lead generation & enrichment",
+        starter: null,
+        growth: true,
+        custom: true,
       },
       {
-        name: "Mainline AI",
-        free: null,
-        startup: true,
-        enterprise: true,
-      },
-      {
-        name: "Admin roles",
-        free: null,
-        startup: null,
-        enterprise: true,
-      },
-      {
-        name: "Audit log",
-        free: null,
-        startup: null,
-        enterprise: true,
+        name: "Custom API integrations",
+        starter: null,
+        growth: null,
+        custom: true,
       },
     ],
   },
   {
-    category: "Support",
+    category: "Support & Delivery",
     features: [
       {
-        name: "Priority Support",
-        free: true,
-        startup: true,
-        enterprise: true,
+        name: "Setup & deployment",
+        starter: true,
+        growth: true,
+        custom: true,
       },
       {
-        name: "Account Manager",
-        free: null,
-        startup: null,
-        enterprise: true,
+        name: "Post-launch support",
+        starter: "7 hari",
+        growth: "30 hari",
+        custom: "Dedicated",
       },
       {
-        name: "Uptime SLA",
-        free: null,
-        startup: null,
-        enterprise: true,
+        name: "Training tim",
+        starter: null,
+        growth: true,
+        custom: true,
+      },
+      {
+        name: "Dashboard reporting",
+        starter: null,
+        growth: true,
+        custom: true,
+      },
+      {
+        name: "SLA & priority response",
+        starter: null,
+        growth: null,
+        custom: true,
       },
     ],
   },
@@ -161,7 +167,7 @@ const renderFeatureValue = (value: true | false | null | string) => {
 };
 
 export const PricingTable = () => {
-  const [selectedPlan, setSelectedPlan] = useState(1); // Default to Startup plan
+  const [selectedPlan, setSelectedPlan] = useState(1); // Default to Growth plan
 
   return (
     <section className="pb-28 lg:py-32">
@@ -202,8 +208,11 @@ const PlanHeaders = ({
             <Button
               variant={pricingPlans[selectedPlan].button.variant}
               className="w-fit"
+              asChild
             >
-              {pricingPlans[selectedPlan].button.text}
+              <a href="/contact">
+                {pricingPlans[selectedPlan].button.text}
+              </a>
             </Button>
           </div>
           <CollapsibleContent className="flex flex-col space-y-2 p-2">
@@ -234,8 +243,8 @@ const PlanHeaders = ({
         {pricingPlans.map((plan, index) => (
           <div key={index} className="">
             <h3 className="mb-3 text-2xl font-semibold">{plan.name}</h3>
-            <Button variant={plan.button.variant} className="">
-              {plan.button.text}
+            <Button variant={plan.button.variant} className="" asChild>
+              <a href="/contact">{plan.button.text}</a>
             </Button>
           </div>
         ))}
@@ -263,7 +272,7 @@ const FeatureSections = ({ selectedPlan }: { selectedPlan: number }) => (
             <div className="md:hidden">
               <div className="flex items-center gap-1 py-4 md:border-b">
                 {renderFeatureValue(
-                  [feature.free, feature.startup, feature.enterprise][
+                  [feature.starter, feature.growth, feature.custom][
                     selectedPlan
                   ],
                 )}
@@ -271,7 +280,7 @@ const FeatureSections = ({ selectedPlan }: { selectedPlan: number }) => (
             </div>
             {/* Desktop View - All Plans */}
             <div className="hidden md:col-span-3 md:grid md:grid-cols-3 md:gap-4">
-              {[feature.free, feature.startup, feature.enterprise].map(
+              {[feature.starter, feature.growth, feature.custom].map(
                 (value, i) => (
                   <div
                     key={i}

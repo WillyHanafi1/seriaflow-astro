@@ -1,9 +1,6 @@
 
-import { ArrowRight } from "lucide-react";
-
 import { DashedLine } from "../dashed-line";
 
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -14,62 +11,46 @@ import {
 } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
 
-const items = [
+const caseStudies = [
   {
-    quote: "We're misusing Mainline as a CRM and it still works!",
-    author: "Amy Chase",
-    role: "PM",
-    company: "Mercury Finance",
-    image: "/testimonials/amy-chase.webp",
+    emoji: "🏦",
+    title: "Otomasi Rekonsiliasi Bank",
+    description:
+      "Proses rekonsiliasi bank yang dulunya memakan waktu berhari-hari kini selesai dalam hitungan menit. Sistem kami otomatis mencocokkan transaksi, mendeteksi selisih, dan menghasilkan laporan siap audit.",
+    result: "Hemat 90% waktu kerja",
+    tags: ["Python", "n8n", "Spreadsheet"],
   },
   {
-    quote: "I was able to replace 80% of my team with Mainline bots.",
-    author: "Jonas Kotara",
-    role: "Lead Engineer",
-    company: "Mercury Finance",
-    image: "/testimonials/jonas-kotara.webp",
+    emoji: "💬",
+    title: "WhatsApp AI Chatbot",
+    description:
+      "Chatbot cerdas yang terintegrasi langsung dengan WhatsApp Business. Mampu menjawab pertanyaan pelanggan, memproses pesanan, dan mengarahkan leads ke tim sales — 24 jam non-stop.",
+    result: "Respon pelanggan 24/7",
+    tags: ["OpenAI", "WhatsApp API", "n8n"],
   },
   {
-    quote: "Founder Mode is hard enough without having a really nice PM app.",
-    author: "Kevin Yam",
-    role: "Founder",
-    company: "Mercury Finance",
-    image: "/testimonials/kevin-yam.webp",
+    emoji: "🎯",
+    title: "Lead Generation & Enrichment",
+    description:
+      "Otomasi pencarian prospek dari berbagai sumber, pengkayaan data kontak, dan scoring leads secara otomatis. Tim sales Anda hanya perlu fokus pada leads yang sudah berkualitas.",
+    result: "Pipeline terisi otomatis",
+    tags: ["AI", "n8n", "CRM"],
   },
   {
-    quote: "I can use the tool as a substitute from my PM.",
-    author: "Kundo Marta",
-    role: "Founder",
-    company: "Mercury Finance",
-    image: "/testimonials/kundo-marta.webp",
+    emoji: "⚙️",
+    title: "Odoo + n8n Integration",
+    description:
+      "Integrasi end-to-end antara Odoo ERP dan n8n untuk mengotomasi proses Sales, HR, Invoicing, dan Finance. Data mengalir tanpa campur tangan manual dari satu departemen ke departemen lain.",
+    result: "Operasional terhubung end-to-end",
+    tags: ["Odoo", "n8n", "Automation"],
   },
   {
-    quote: "We're misusing Mainline as a CRM and it still works!",
-    author: "Amy Chase",
-    role: "PM",
-    company: "Mercury Finance",
-    image: "/testimonials/amy-chase.webp",
-  },
-  {
-    quote: "I was able to replace 80% of my team with Mainline bots.",
-    author: "Jonas Kotara",
-    role: "Lead Engineer",
-    company: "Mercury Finance",
-    image: "/testimonials/jonas-kotara.webp",
-  },
-  {
-    quote: "Founder Mode is hard enough without having a really nice PM app.",
-    author: "Kevin Yam",
-    role: "Founder",
-    company: "Mercury Finance",
-    image: "/testimonials/kevin-yam.webp",
-  },
-  {
-    quote: "I can use the tool as a substitute from my PM.",
-    author: "Kundo Marta",
-    role: "Founder",
-    company: "Mercury Finance",
-    image: "/testimonials/kundo-marta.webp",
+    emoji: "🚀",
+    title: "Custom Automation Workflows",
+    description:
+      "Berbagai workflow automation yang disesuaikan dengan kebutuhan spesifik bisnis. Dari notifikasi otomatis, pembuatan laporan, hingga integrasi antar-aplikasi yang kompleks.",
+    result: "Efisiensi operasional 10x",
+    tags: ["n8n", "API", "Custom"],
   },
 ];
 
@@ -86,16 +67,12 @@ export const Testimonials = ({
         <div className="container">
           <div className="space-y-4">
             <h2 className="text-2xl tracking-tight md:text-4xl lg:text-5xl">
-              Trusted by product builders
+              Hasil Nyata, Bukan Janji
             </h2>
             <p className="text-muted-foreground max-w-md leading-snug">
-              Mainline is built on the habits that make the best product teams
-              successful: staying focused, moving quickly, and always aiming for
-              high-quality work.
+              Setiap solusi yang kami bangun dirancang untuk memberikan dampak
+              terukur. Berikut beberapa project yang sudah kami selesaikan.
             </p>
-            <Button variant="outline" className="shadow-md">
-              Read our Customer Stories <ArrowRight className="size-4" />
-            </Button>
           </div>
 
           <div className="relative mt-8 -mr-[max(3rem,calc((100vw-80rem)/2+3rem))] md:mt-12 lg:mt-20">
@@ -107,30 +84,40 @@ export const Testimonials = ({
               className="w-full"
             >
               <CarouselContent className="">
-                {items.map((testimonial, index) => (
+                {caseStudies.map((study, index) => (
                   <CarouselItem
                     key={index}
                     className="xl:basis-1/3.5 grow basis-4/5 sm:basis-3/5 md:basis-2/5 lg:basis-[28%] 2xl:basis-[24%]"
                   >
                     <Card className="bg-muted h-full overflow-hidden border-none">
                       <CardContent className="flex h-full flex-col p-0">
-                        <div className="relative h-[288px] lg:h-[328px]">
-                          <img
-                            src={testimonial.image}
-                            alt={testimonial.author}
-                            className="h-full w-full object-cover object-top"
-                          />
+                        <div className="flex h-[120px] items-center justify-center bg-gradient-to-br from-primary/10 to-primary/5 lg:h-[140px]">
+                          <span className="text-6xl">{study.emoji}</span>
                         </div>
-                        <div className="flex flex-1 flex-col justify-between gap-10 p-6">
-                          <blockquote className="font-display text-lg leading-none! font-medium md:text-xl lg:text-2xl">
-                            {testimonial.quote}
-                          </blockquote>
-                          <div className="space-y-0.5">
-                            <div className="text-primary font-semibold">
-                              {testimonial.author}, {testimonial.role}
+                        <div className="flex flex-1 flex-col justify-between gap-6 p-6">
+                          <div className="space-y-3">
+                            <h3 className="font-display text-lg leading-tight font-bold md:text-xl">
+                              {study.title}
+                            </h3>
+                            <p className="text-muted-foreground text-sm leading-relaxed">
+                              {study.description}
+                            </p>
+                          </div>
+                          <div className="space-y-3">
+                            <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1.5">
+                              <span className="text-primary text-sm font-semibold">
+                                📊 {study.result}
+                              </span>
                             </div>
-                            <div className="text-muted-foreground text-sm">
-                              {testimonial.company}
+                            <div className="flex flex-wrap gap-1.5">
+                              {study.tags.map((tag) => (
+                                <span
+                                  key={tag}
+                                  className="text-muted-foreground rounded-md border px-2 py-0.5 text-xs"
+                                >
+                                  {tag}
+                                </span>
+                              ))}
                             </div>
                           </div>
                         </div>

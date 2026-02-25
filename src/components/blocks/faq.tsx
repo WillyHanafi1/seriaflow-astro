@@ -10,52 +10,57 @@ import { cn } from "@/lib/utils";
 
 const categories = [
   {
-    title: "Support",
+    title: "Layanan",
     questions: [
       {
-        question: "How do I update my account without breaking my laptop?",
+        question: "Layanan apa saja yang ditawarkan Seriaflow?",
         answer:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos.",
+          "Seriaflow menyediakan layanan AI Chatbot (terintegrasi WhatsApp), Workflow Automation (menggunakan n8n), Integrasi ERP (Odoo), Lead Generation & Enrichment, serta solusi Custom AI Agent untuk kebutuhan spesifik bisnis Anda.",
       },
       {
-        question: "Is support free, or do I need to Google everything?",
+        question: "Apakah Seriaflow bisa membantu bisnis kecil?",
         answer:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos.",
+          "Tentu! Paket Starter kami dirancang khusus untuk bisnis kecil dan menengah yang ingin memulai automasi dengan budget terjangkau. Anda bisa mulai dari Rp 1.000.000 untuk AI Chatbot WhatsApp.",
       },
       {
-        question: "Are you going to be subsumed by AI?",
+        question: "Teknologi apa yang digunakan Seriaflow?",
         answer:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos.",
+          "Kami menggunakan teknologi enterprise-grade seperti n8n untuk workflow automation, Odoo untuk ERP, OpenAI & Google Gemini untuk AI, WhatsApp Business API untuk chatbot, dan berbagai tools modern lainnya yang dipilih sesuai kebutuhan project.",
       },
     ],
   },
   {
-    title: "Your account",
+    title: "Proses & Timeline",
     questions: [
       {
-        question: "Is support free, or do I need to Google everything?",
+        question: "Berapa lama waktu pengerjaan project?",
         answer:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos.",
+          "Untuk paket Starter (AI Chatbot), pengerjaan biasanya selesai dalam 5-7 hari kerja. Paket Growth membutuhkan 2-4 minggu tergantung kompleksitas integrasi. Paket Custom akan ditentukan setelah analisis kebutuhan.",
       },
       {
-        question: "Are you going to be subsumed by AI?",
+        question: "Bagaimana proses kerja sama dengan Seriaflow?",
         answer:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos.",
+          "Prosesnya dimulai dari konsultasi gratis untuk memahami kebutuhan Anda, dilanjutkan dengan proposal & timeline, development & testing, deployment, dan terakhir training tim Anda. Kami memastikan Anda terlibat di setiap tahap.",
+      },
+      {
+        question: "Apakah ada support setelah project selesai?",
+        answer:
+          "Ya! Setiap paket sudah termasuk support pasca-launch (7 hari untuk Starter, 30 hari untuk Growth). Untuk paket Custom, kami menyediakan dedicated support bulanan dengan SLA yang jelas.",
       },
     ],
   },
   {
-    title: "Other questions",
+    title: "Harga & Pembayaran",
     questions: [
       {
-        question: "Is support free, or do I need to Google everything?",
+        question: "Apakah konsultasi awal berbayar?",
         answer:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos.",
+          "Tidak, konsultasi awal sepenuhnya gratis dan tanpa komitmen. Kami akan berdiskusi tentang kebutuhan bisnis Anda dan memberikan rekomendasi solusi yang paling tepat.",
       },
       {
-        question: "Are you going to be subsumed by AI?",
+        question: "Bagaimana skema pembayarannya?",
         answer:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus voluptates deserunt officia temporibus dignissimos.",
+          "Pembayaran dilakukan secara bertahap: 50% di awal sebagai down payment, dan 50% setelah project selesai dan Anda puas dengan hasilnya. Untuk paket Custom dengan maintenance bulanan, pembayaran dilakukan di awal setiap bulan.",
       },
     ],
   },

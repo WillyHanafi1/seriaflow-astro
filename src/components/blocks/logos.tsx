@@ -14,70 +14,84 @@ type Company = {
 export const Logos = () => {
   const topRowCompanies = [
     {
-      name: "Mercury",
-      logo: "/logos/mercury.svg",
-      width: 143,
-      height: 26,
-      href: "https://mercury.com",
+      name: "n8n",
+      logo: "/logos/n8n.svg",
+      width: 100,
+      height: 100,
+      href: "https://n8n.io",
     },
     {
-      name: "Watershed",
-      logo: "/logos/watershed.svg",
-      width: 154,
-      height: 31,
-      href: "https://watershed.com",
+      name: "Odoo",
+      logo: "/logos/odoo.svg",
+      width: 100,
+      height: 100,
+      href: "https://odoo.com",
     },
     {
-      name: "Retool",
-      logo: "/logos/retool.svg",
-      width: 113,
-      height: 22,
-      href: "https://retool.com",
+      name: "OpenAI",
+      logo: "/logos/openai.svg",
+      width: 130,
+      height: 130,
+      href: "https://openai.com",
     },
     {
-      name: "Descript",
-      logo: "/logos/descript.svg",
-      width: 112,
-      height: 27,
-      href: "https://descript.com",
+      name: "WhatsApp",
+      logo: "/logos/whatsapp.svg",
+      width: 60,
+      height: 60,
+      href: "https://business.whatsapp.com",
+    },
+    {
+      name: "Salesforce",
+      logo: "/logos/salesforce.svg",
+      width: 80,
+      height: 80,
+      href: "https://salesforce.com",
     },
   ];
 
   const bottomRowCompanies = [
     {
-      name: "Perplexity",
-      logo: "/logos/perplexity.svg",
-      width: 141,
-      height: 32,
-      href: "https://perplexity.com",
+      name: "Slack",
+      logo: "/logos/slack.svg",
+      width: 80,
+      height: 80,
+      href: "https://slack.com",
     },
     {
-      name: "Monzo",
-      logo: "/logos/monzo.svg",
-      width: 104,
-      height: 18,
-      href: "https://monzo.com",
+      name: "Next.js",
+      logo: "/logos/nextjs.svg",
+      width: 80,
+      height: 80,
+      href: "https://nextjs.org",
     },
     {
-      name: "Ramp",
-      logo: "/logos/ramp.svg",
-      width: 105,
-      height: 28,
-      href: "https://ramp.com",
+      name: "DigitalOcean",
+      logo: "/logos/digitalocean.svg",
+      width: 80,
+      height: 80,
+      href: "https://digitalocean.com",
     },
     {
-      name: "Raycast",
-      logo: "/logos/raycast.svg",
-      width: 128,
-      height: 33,
-      href: "https://raycast.com",
+      name: "Scikit-learn",
+      logo: "/logos/scikitlearn.svg",
+      width: 80,
+      height: 80,
+      href: "https://scikit-learn.org",
     },
     {
-      name: "Arc",
-      logo: "/logos/arc.svg",
-      width: 90,
-      height: 28,
-      href: "https://arc.com",
+      name: "Google Sheets",
+      logo: "/logos/googlesheets.svg",
+      width: 80,
+      height: 80,
+      href: "https://sheets.google.com",
+    },
+    {
+      name: "Gemini",
+      logo: "/logos/gemini.svg",
+      width: 80,
+      height: 80,
+      href: "https://deepmind.google/technologies/gemini/",
     },
   ];
 
@@ -86,22 +100,22 @@ export const Logos = () => {
       <div className="container space-y-10 lg:space-y-16">
         <div className="text-center">
           <h2 className="mb-4 text-xl text-balance md:text-2xl lg:text-3xl">
-            Powering the world's best product teams.
+            Didukung oleh Teknologi Terdepan.
             <br className="max-md:hidden" />
             <span className="text-muted-foreground">
-              From next-gen startups to established enterprises.
+              Tools enterprise-grade untuk hasil yang maksimal.
             </span>
           </h2>
         </div>
 
         <div className="flex w-full flex-col items-center gap-8">
-          {/* Top row - 4 logos */}
-          <LogoRow companies={topRowCompanies} gridClassName="grid-cols-4" />
+          {/* Top row - 5 logos */}
+          <LogoRow companies={topRowCompanies} gridClassName="grid-cols-5" />
 
-          {/* Bottom row - 5 logos */}
+          {/* Bottom row - 6 logos */}
           <LogoRow
             companies={bottomRowCompanies}
-            gridClassName="grid-cols-5"
+            gridClassName="grid-cols-6"
             direction="right"
           />
         </div>
@@ -128,13 +142,13 @@ const LogoRow = ({ companies, gridClassName, direction }: LogoRowProps) => {
           )}
         >
           {companies.map((company, index) => (
-            <a href={company.href} target="_blank" key={index}>
+            <a href={company.href} target="_blank" key={index} title={company.name}>
               <img
                 src={company.logo}
                 alt={`${company.name} logo`}
                 width={company.width}
                 height={company.height}
-                className="dark:opacity/100 object-contain opacity-50 transition-opacity hover:opacity-70 dark:invert"
+                className="object-contain transition-opacity hover:opacity-70"
               />
             </a>
           ))}
@@ -155,6 +169,7 @@ const LogoRow = ({ companies, gridClassName, direction }: LogoRowProps) => {
               target="_blank"
               key={index}
               className="mx-4 inline-block transition-opacity hover:opacity-70 flex-shrink-0"
+              title={company.name}
             >
               <img
                 src={company.logo}

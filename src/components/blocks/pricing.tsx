@@ -1,57 +1,65 @@
 "use client";
 
-import { useState } from "react";
-
-import { Check } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Switch } from "@/components/ui/switch";
 import { cn } from "@/lib/utils";
 
 const plans = [
   {
-    name: "Free",
-    monthlyPrice: "$0",
-    yearlyPrice: "$0",
-    description: "Free for everyone",
+    name: "Starter",
+    price: "Rp 1.000.000",
+    priceSuffix: "per project",
+    description: "AI Chatbot untuk memulai automasi bisnis Anda",
     features: [
-      "Unlimited members",
-      "2 teams",
-      "500 issues",
-      "Slack and Github integrations",
+      "1 AI Chatbot WhatsApp",
+      "Basic conversation flow",
+      "Integrasi WhatsApp Business",
+      "Setup & deployment",
+      "7 hari support pasca-launch",
     ],
+    cta: "Mulai Sekarang",
+    href: "/contact",
+    highlighted: false,
   },
   {
-    name: "Startup",
-    monthlyPrice: "$8",
-    yearlyPrice: "$6",
+    name: "Growth",
+    price: "Rp 10.000.000",
+    priceSuffix: "per project",
+    description: "Paket lengkap untuk automasi operasional bisnis",
     features: [
-      "All free plan features and...",
-      "Mainline AI",
-      "Unlimited teams",
-      "Unlimited issues and file uploads",
-      "Mainline Insights",
-      "Admin roles",
+      "3 workflow automations",
+      "Integrasi Odoo / n8n / CRM",
+      "Lead generation & enrichment",
+      "Dashboard reporting",
+      "30 hari support pasca-launch",
+      "Training tim Anda",
     ],
+    cta: "Pilih Growth",
+    href: "/contact",
+    highlighted: true,
   },
   {
-    name: "Enterprise",
-    monthlyPrice: "$8",
-    yearlyPrice: "$6",
+    name: "Custom",
+    price: "Hubungi Kami",
+    priceSuffix: "",
+    description: "Solusi enterprise yang disesuaikan 100% untuk Anda",
     features: [
-      "All free plan features and...",
-      "Mainline AI",
-      "Supermainline AGI",
-      "Free daily catered lunch",
-      "random HIPPA audits",
+      "Unlimited workflow automations",
+      "Custom AI agents",
+      "Full system integration",
+      "Dedicated project manager",
+      "Maintenance & support bulanan",
+      "SLA & priority response",
     ],
+    cta: "Jadwalkan Konsultasi",
+    href: "/contact",
+    highlighted: false,
   },
 ];
 
 export const Pricing = ({ className }: { className?: string }) => {
-  const [isAnnual, setIsAnnual] = useState(true);
-
   return (
     <section className={cn("py-28 lg:py-32", className)}>
       <div className="container max-w-5xl">
@@ -60,9 +68,8 @@ export const Pricing = ({ className }: { className?: string }) => {
             Pricing
           </h2>
           <p className="text-muted-foreground mx-auto max-w-xl leading-snug text-balance">
-            Use Mainline for free with your whole team. Upgrade to enable
-            unlimited issues, enhanced security controls, and additional
-            features.
+            Investasi yang terukur untuk automasi bisnis Anda. Setiap paket
+            dirancang untuk memberikan ROI nyata sejak hari pertama.
           </p>
         </div>
 
@@ -71,7 +78,7 @@ export const Pricing = ({ className }: { className?: string }) => {
             <Card
               key={plan.name}
               className={`${
-                plan.name === "Startup"
+                plan.highlighted
                   ? "outline-primary origin-top outline-4"
                   : ""
               }`}
@@ -80,32 +87,20 @@ export const Pricing = ({ className }: { className?: string }) => {
                 <div className="space-y-2">
                   <h3 className="text-foreground font-semibold">{plan.name}</h3>
                   <div className="space-y-1">
-                    <div className="text-muted-foreground text-lg font-medium">
-                      {isAnnual ? plan.yearlyPrice : plan.monthlyPrice}{" "}
-                      {plan.name !== "Free" && (
-                        <span className="text-muted-foreground">
-                          per user/
-                          {isAnnual ? "year" : "month"}
-                        </span>
-                      )}
+                    <div className="text-foreground text-2xl font-bold">
+                      {plan.price}
                     </div>
+                    {plan.priceSuffix && (
+                      <div className="text-muted-foreground text-sm">
+                        {plan.priceSuffix}
+                      </div>
+                    )}
                   </div>
                 </div>
 
-                {plan.name !== "Free" ? (
-                  <div className="flex items-center gap-2">
-                    <Switch
-                      checked={isAnnual}
-                      onCheckedChange={() => setIsAnnual(!isAnnual)}
-                      aria-label="Toggle annual billing"
-                    />
-                    <span className="text-sm font-medium">Billed annually</span>
-                  </div>
-                ) : (
-                  <span className="text-muted-foreground text-sm">
-                    {plan.description}
-                  </span>
-                )}
+                <span className="text-muted-foreground text-sm">
+                  {plan.description}
+                </span>
 
                 <div className="space-y-3">
                   {plan.features.map((feature) => (
@@ -120,10 +115,14 @@ export const Pricing = ({ className }: { className?: string }) => {
                 </div>
 
                 <Button
-                  className="w-fit"
-                  variant={plan.name === "Startup" ? "default" : "outline"}
+                  className="w-fit gap-2"
+                  variant={plan.highlighted ? "default" : "outline"}
+                  asChild
                 >
-                  Get started
+                  <a href={plan.href}>
+                    {plan.cta}
+                    <ArrowRight className="size-4" />
+                  </a>
                 </Button>
               </CardContent>
             </Card>

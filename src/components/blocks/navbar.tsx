@@ -5,7 +5,7 @@ import { motion, useScroll, useMotionValueEvent } from "motion/react";
 
 import { useEffect } from "react";
 
-import { ChevronRight, Github } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
@@ -26,22 +26,22 @@ const ITEMS = [
     href: "#features",
     dropdownItems: [
       {
-        title: "Modern product teams",
+        title: "Solusi AI untuk Bisnis",
         href: "/#feature-modern-teams",
         description:
-          "Mainline is built on the habits that make the best product teams successful",
+          "Chatbot, automasi, dan integrasi AI yang dirancang khusus untuk kebutuhan bisnis Anda",
       },
       {
-        title: "Resource Allocation",
+        title: "Automasi End-to-End",
         href: "/#resource-allocation",
-        description: "Mainline your resource allocation and execution",
+        description: "Hubungkan seluruh sistem bisnis Anda dengan automasi cerdas",
       },
     ],
   },
   { label: "About Us", href: "/about" },
   { label: "Pricing", href: "/pricing" },
   { label: "FAQ", href: "/faq" },
-  { label: "Contact", href: "/contact" },
+  { label: "Resources", href: "/resources" },
 ];
 
 export const Navbar = () => {
@@ -152,18 +152,6 @@ export const Navbar = () => {
         {/* Auth Buttons */}
         <div className="flex items-center gap-2.5">
           <ThemeToggle />
-          <a href="/login" className="max-lg:hidden">
-            <Button variant="outline">
-              <span className="relative z-10">Login</span>
-            </Button>
-          </a>
-          <a
-            href="https://github.com/shadcnblocks/mainline-nextjs-template"
-            className="text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <Github className="size-4" />
-            <span className="sr-only">GitHub</span>
-          </a>
 
           {/* Hamburger Menu Button (Mobile Only) */}
           <button

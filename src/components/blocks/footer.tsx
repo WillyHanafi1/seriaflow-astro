@@ -13,8 +13,8 @@ export function Footer() {
   ];
 
   const social = [
-    { name: "Xwitter", href: "https://x.com/ausrobdev" },
-    { name: "LinkedIn", href: "#" },
+    { name: "WhatsApp", href: "https://wa.me/6281234567890" },
+    { name: "LinkedIn", href: "https://linkedin.com/company/seriaflow" },
   ];
 
   const legal = [{ name: "Privacy Policy", href: "/privacy" }];
@@ -23,16 +23,16 @@ export function Footer() {
     <footer className="flex flex-col items-center gap-14 pt-28 lg:pt-32">
       <div className="container space-y-3 text-center">
         <h2 className="text-2xl tracking-tight md:text-4xl lg:text-5xl">
-          Start your free trial today
+          Siap Mengotomasi Bisnis Anda?
         </h2>
         <p className="text-muted-foreground mx-auto max-w-xl leading-snug text-balance">
-          Mainline is the fit-for-purpose tool for planning and building modern
-          software products.
+          Konsultasikan kebutuhan automasi bisnis Anda bersama tim Seriaflow.
+          Tanpa biaya, tanpa komitmen.
         </p>
         <div>
           <Button size="lg" className="mt-4" asChild>
-            <a href="https://github.com/shadcnblocks/mainline-nextjs-template">
-              Get template
+            <a href="/contact">
+              Konsultasi Gratis
             </a>
           </Button>
         </div>
