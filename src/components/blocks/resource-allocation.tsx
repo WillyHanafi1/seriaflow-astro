@@ -62,7 +62,7 @@ const bottomItems = [
   {
     title: "Graveyard it.",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do.",
+      "Arsipkan proyek lama dan hilangkan kekacauan pada ruang kerja Anda.",
     images: [
       {
         src: "/resource-allocation/graveyard.webp",
@@ -78,7 +78,7 @@ const bottomItems = [
   {
     title: "Task discussions.",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.",
+      "Diskusikan setiap tugas langsung pada konteksnya agar tim tetap selaras.",
     images: [
       {
         src: "/resource-allocation/discussions.webp",
@@ -94,7 +94,7 @@ const bottomItems = [
   {
     title: "Notifications.",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.",
+      "Dapatkan notifikasi real-time untuk setiap pembaruan penting pada proyek.",
     images: [
       {
         src: "/resource-allocation/notifications.webp",
