@@ -1,7 +1,5 @@
 
-
-import { cn } from "@/lib/utils";
-
+import LogoLoop from "../ui/logo-loop";
 
 type Company = {
   name: string;
@@ -99,50 +97,25 @@ export const Logos = () => {
   const firstRow = allCompanies.slice(0, 6);
   const secondRow = allCompanies.slice(6);
 
-  const renderMarqueeLogos = (companies: Company[], isDesktop: boolean = false) => {
-    const baseClassName = "dark:bg-[#D3D3D3] grid aspect-square size-16 flex-shrink-0 place-items-center rounded-2xl p-2";
-    const desktopClassName = isDesktop ? "transition-opacity hover:opacity-70 lg:size-20" : "";
+  const renderItem = (company: Company) => {
+    const baseClassName = "dark:bg-[#D3D3D3] grid aspect-square size-16 flex-shrink-0 place-items-center rounded-2xl p-2 transition-opacity hover:opacity-70 lg:size-20";
     
     return (
-      <>
-        {companies.map((company) => (
-          <a
-            href={company.href}
-            target="_blank"
-            key={company.name}
-            title={company.name}
-            className={cn(baseClassName, desktopClassName)}
-          >
-            <img
-              src={company.logo}
-              alt={`${company.name} logo`}
-              width={company.width}
-              height={company.height}
-              className="object-contain"
-            />
-          </a>
-        ))}
-        {/* Render duplikat secara terpisah untuk aksesibilitas */}
-        {companies.map((company) => (
-          <a
-            href={company.href}
-            target="_blank"
-            key={`${company.name}-dup`}
-            title={company.name}
-            aria-hidden="true"
-            tabIndex={-1}
-            className={cn(baseClassName, desktopClassName)}
-          >
-            <img
-              src={company.logo}
-              alt=""
-              width={company.width}
-              height={company.height}
-              className="object-contain"
-            />
-          </a>
-        ))}
-      </>
+      <a
+        href={company.href}
+        target="_blank"
+        key={company.name}
+        title={company.name}
+        className={baseClassName}
+      >
+        <img
+          src={company.logo}
+          alt={`${company.name} logo`}
+          width={company.width}
+          height={company.height}
+          className="object-contain"
+        />
+      </a>
     );
   };
 
@@ -159,31 +132,29 @@ export const Logos = () => {
           </h2>
         </div>
 
-        {/* Desktop: animated marquee (scrolling left and right) */}
-        <div className="hidden md:block">
-          <div className="relative overflow-hidden w-full max-w-[100vw]">
-            <div className="flex flex-col gap-18 items-center">
-              {/* First row - scrolling left */}
-              <div className="flex w-max animate-marquee gap-20 pr-20 hover:[animation-play-state:paused]">
-                {renderMarqueeLogos(firstRow, true)}
-              </div>
-              {/* Second row - scrolling right */}
-              <div className="flex w-max animate-marquee-reverse gap-20 pr-20 hover:[animation-play-state:paused]">
-                {renderMarqueeLogos(secondRow, true)}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile: marquee */}
-        <div className="md:hidden overflow-hidden">
-          <div className="flex flex-col gap-6">
-            <div className="flex w-max animate-marquee gap-8 pr-8 hover:[animation-play-state:paused]">
-              {renderMarqueeLogos(firstRow, false)}
-            </div>
-            <div className="flex w-max animate-marquee-reverse gap-8 pr-8 hover:[animation-play-state:paused]">
-              {renderMarqueeLogos(secondRow, false)}
-            </div>
+        <div className="relative overflow-hidden w-full max-w-[100vw]">
+          {/* gap-8 for mobile, gap-18 for desktop */}
+          <div className="flex flex-col gap-8 md:gap-18 items-center">
+            {/* First row - scrolling left */}
+            <LogoLoop
+              logos={firstRow as any}
+              speed={40}
+              direction="left"
+              gap={32}
+              renderItem={renderItem as any}
+              pauseOnHover={true}
+              fadeOut={false} // optional fade look on edges
+            />
+            {/* Second row - scrolling right */}
+            <LogoLoop
+              logos={secondRow as any}
+              speed={40}
+              direction="right"
+              gap={32}
+              renderItem={renderItem as any}
+              pauseOnHover={true}
+              fadeOut={false}
+            />
           </div>
         </div>
       </div>
