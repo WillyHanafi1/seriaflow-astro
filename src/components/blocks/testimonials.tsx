@@ -101,8 +101,8 @@ export const Testimonials = ({
                   >
                     <Card className="bg-muted h-full overflow-hidden border-none">
                       <CardContent className="flex h-full flex-col p-0">
-                        <div className="flex h-[120px] flex-col items-center justify-center bg-gradient-to-br from-primary/10 to-primary/5 lg:h-[140px]">
-                          <span className="text-primary text-4xl font-bold lg:text-5xl">{study.metric}</span>
+                        <div className="flex h-[120px] flex-col items-center justify-center border-b border-border/50 lg:h-[140px] bg-zinc-100/50 dark:bg-zinc-800/30">
+                          <span className="text-zinc-900 dark:text-white text-4xl font-bold lg:text-5xl">{study.metric}</span>
                           <span className="text-muted-foreground mt-1 text-xs font-medium uppercase tracking-wider">{study.metricLabel}</span>
                         </div>
                         <div className="flex flex-1 flex-col justify-between gap-6 p-6">

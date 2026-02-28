@@ -9,10 +9,10 @@ const contactInfo = [
     content: (
       <div className="mt-3">
         <a
-          href="mailto:hello@seriaflow.com"
+          href="mailto:willy@seriaflow.com"
           className="text-muted-foreground hover:text-foreground"
         >
-          hello@seriaflow.com
+          willy@seriaflow.com
         </a>
       </div>
     ),
@@ -22,29 +22,10 @@ const contactInfo = [
     content: (
       <div className="mt-3">
         <a
-          href="https://wa.me/6281234567890"
+          href="https://wa.me/6282319401259"
           className="text-muted-foreground hover:text-foreground"
         >
-          +62 812-3456-7890
-        </a>
-      </div>
-    ),
-  },
-  {
-    title: "Ikuti Kami",
-    content: (
-      <div className="mt-3 flex gap-6 lg:gap-10">
-        <a
-          href="https://linkedin.com/company/seriaflow"
-          className="text-muted-foreground hover:text-foreground"
-        >
-          LinkedIn
-        </a>
-        <a
-          href="https://instagram.com/seriaflow"
-          className="text-muted-foreground hover:text-foreground"
-        >
-          Instagram
+          +62 823-1940-1259
         </a>
       </div>
     ),
