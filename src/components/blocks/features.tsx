@@ -8,15 +8,21 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const items = [
   {
-    title: "AI Chatbot & Asisten Virtual",
+    title: "AI Chatbot Customer Service",
+    tagline: "Selalu online. Selalu siap. Tanpa biaya overtime.",
+    description: "Pelanggan mendapat jawaban instan 24/7 tanpa antrian. Tim support fokus pada isu yang benar-benar butuh sentuhan manusia.",
     image: "/features/triage-card.svg",
   },
   {
-    title: "Workflow Automation & Integrasi",
+    title: "Workflow Automasi N8N",
+    tagline: "Pekerjaan berulang? Biarkan mesin yang kerjakan.",
+    description: "Dari sinkronisasi data lintas aplikasi hingga laporan otomatis ke email — workflow kamu berjalan sendiri, bahkan saat kamu tidur.",
     image: "/features/cycle-card.svg",
   },
   {
-    title: "Data Analytics & AI Insights",
+    title: "Rekonsiliasi Bank Otomatis",
+    tagline: "Tutup buku lebih cepat, tanpa pusing.",
+    description: "Proses yang dulunya memakan berjam-jam kini selesai dalam menit. Tim finance fokus menganalisis angka, bukan menyamakan angka.",
     image: "/features/overview-card.svg",
   },
 ];
@@ -36,12 +42,11 @@ export const Features = () => {
         {/* Content */}
         <div className="mx-auto mt-10 grid max-w-4xl items-center gap-3 md:gap-0 lg:mt-24 lg:grid-cols-2">
           <h2 className="text-2xl tracking-tight md:text-4xl lg:text-5xl">
-            Solusi AI untuk Bisnis Modern
+            Hasil Nyata, Bukan Janji
           </h2>
           <p className="text-muted-foreground leading-snug">
-            Seriaflow membangun solusi AI dan automasi yang dirancang untuk
-            memberikan dampak nyata — menghemat waktu, mengurangi error,
-            dan mempercepat pertumbuhan bisnis Anda.
+            Setiap solusi yang kami bangun dirancang untuk memberikan dampak
+            terukur. Berikut beberapa project yang sudah kami selesaikan.
           </p>
         </div>
 
@@ -66,10 +71,14 @@ export const Features = () => {
                       "group flex items-center justify-between gap-4 pe-4 pt-4 md:pe-6 md:pt-6"
                     }
                   >
-                    <h3 className="font-display max-w-60 text-2xl leading-tight font-bold tracking-tight">
-                      {item.title}
-                    </h3>
-                    <div className="rounded-full border p-2">
+                    <div className="flex flex-col gap-1 max-w-60">
+                      <p className="text-muted-foreground text-xs font-mono tracking-wide uppercase">{item.tagline}</p>
+                      <h3 className="font-display text-2xl leading-tight font-bold tracking-tight">
+                        {item.title}
+                      </h3>
+                      <p className="text-muted-foreground text-sm leading-snug mt-1">{item.description}</p>
+                    </div>
+                    <div className="rounded-full border p-2 shrink-0">
                       <ChevronRight className="size-6 transition-transform group-hover:translate-x-1 lg:size-9" />
                     </div>
                   </a>

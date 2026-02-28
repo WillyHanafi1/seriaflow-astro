@@ -14,43 +14,53 @@ import { cn } from "@/lib/utils";
 const caseStudies = [
   {
     emoji: "🏦",
-    title: "Otomasi Rekonsiliasi Bank",
+    title: "Rekonsiliasi Bank Otomatis",
+    metric: "90%",
+    metricLabel: "waktu kerja berkurang",
     description:
-      "Proses rekonsiliasi bank yang dulunya memakan waktu berhari-hari kini selesai dalam hitungan menit. Sistem kami otomatis mencocokkan transaksi, mendeteksi selisih, dan menghasilkan laporan siap audit.",
-    result: "Hemat 90% waktu kerja",
+      "Proses tutup buku bulanan yang sebelumnya memakan 2 hari kerja kini selesai dalam hitungan menit.",
     tags: ["Python", "n8n", "Spreadsheet"],
+    isReal: true,
   },
   {
     emoji: "💬",
-    title: "WhatsApp AI Chatbot",
+    title: "Chatbot CS WhatsApp",
+    metric: "24/7",
+    metricLabel: "respon tanpa jeda",
     description:
-      "Chatbot cerdas yang terintegrasi langsung dengan WhatsApp Business. Mampu menjawab pertanyaan pelanggan, memproses pesanan, dan mengarahkan leads ke tim sales — 24 jam non-stop.",
-    result: "Respon pelanggan 24/7",
+      "Pelanggan mendapat jawaban instan kapan pun, tanpa antrian. Tim support hanya menangani eskalasi.",
     tags: ["OpenAI", "WhatsApp API", "n8n"],
+    isReal: false,
   },
   {
     emoji: "🎯",
-    title: "Lead Generation & Enrichment",
+    title: "Lead Generation Otomatis",
+    metric: "3x",
+    metricLabel: "lebih banyak prospek",
     description:
-      "Otomasi pencarian prospek dari berbagai sumber, pengkayaan data kontak, dan scoring leads secara otomatis. Tim sales Anda hanya perlu fokus pada leads yang sudah berkualitas.",
-    result: "Pipeline terisi otomatis",
+      "Pipeline sales terisi otomatis dari berbagai sumber. Tim hanya follow-up leads yang sudah berkualitas.",
     tags: ["AI", "n8n", "CRM"],
+    isReal: false,
   },
   {
     emoji: "⚙️",
-    title: "Odoo + n8n Integration",
+    title: "Integrasi ERP End-to-End",
+    metric: "0",
+    metricLabel: "input manual tersisa",
     description:
-      "Integrasi end-to-end antara Odoo ERP dan n8n untuk mengotomasi proses Sales, HR, Invoicing, dan Finance. Data mengalir tanpa campur tangan manual dari satu departemen ke departemen lain.",
-    result: "Operasional terhubung end-to-end",
+      "Data mengalir otomatis antar departemen — dari sales, inventory, hingga invoicing.",
     tags: ["Odoo", "n8n", "Automation"],
+    isReal: false,
   },
   {
     emoji: "🚀",
-    title: "Custom Automation Workflows",
+    title: "Workflow Custom",
+    metric: "10x",
+    metricLabel: "lebih efisien",
     description:
-      "Berbagai workflow automation yang disesuaikan dengan kebutuhan spesifik bisnis. Dari notifikasi otomatis, pembuatan laporan, hingga integrasi antar-aplikasi yang kompleks.",
-    result: "Efisiensi operasional 10x",
+      "Notifikasi cerdas, laporan otomatis, dan sinkronisasi data lintas aplikasi berjalan sendiri.",
     tags: ["n8n", "API", "Custom"],
+    isReal: false,
   },
 ];
 
@@ -67,11 +77,11 @@ export const Testimonials = ({
         <div className="container">
           <div className="space-y-4">
             <h2 className="text-2xl tracking-tight md:text-4xl lg:text-5xl">
-              Hasil Nyata, Bukan Janji
+              Bagaimana Kami Membantu Klien
             </h2>
             <p className="text-muted-foreground max-w-md leading-snug">
-              Setiap solusi yang kami bangun dirancang untuk memberikan dampak
-              terukur. Berikut beberapa project yang sudah kami selesaikan.
+              Angka bicara lebih keras dari janji. Berikut dampak nyata
+              yang sudah dirasakan klien kami.
             </p>
           </div>
 
@@ -91,34 +101,31 @@ export const Testimonials = ({
                   >
                     <Card className="bg-muted h-full overflow-hidden border-none">
                       <CardContent className="flex h-full flex-col p-0">
-                        <div className="flex h-[120px] items-center justify-center bg-gradient-to-br from-primary/10 to-primary/5 lg:h-[140px]">
-                          <span className="text-6xl">{study.emoji}</span>
+                        <div className="flex h-[120px] flex-col items-center justify-center bg-gradient-to-br from-primary/10 to-primary/5 lg:h-[140px]">
+                          <span className="text-primary text-4xl font-bold lg:text-5xl">{study.metric}</span>
+                          <span className="text-muted-foreground mt-1 text-xs font-medium uppercase tracking-wider">{study.metricLabel}</span>
                         </div>
                         <div className="flex flex-1 flex-col justify-between gap-6 p-6">
                           <div className="space-y-3">
-                            <h3 className="font-display text-lg leading-tight font-bold md:text-xl">
-                              {study.title}
-                            </h3>
+                            <div className="flex items-center gap-2">
+                              <span className="text-xl">{study.emoji}</span>
+                              <h3 className="font-display text-lg leading-tight font-bold md:text-xl">
+                                {study.title}
+                              </h3>
+                            </div>
                             <p className="text-muted-foreground text-sm leading-relaxed">
                               {study.description}
                             </p>
                           </div>
-                          <div className="space-y-3">
-                            <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1.5">
-                              <span className="text-primary text-sm font-semibold">
-                                📊 {study.result}
+                          <div className="flex flex-wrap gap-1.5">
+                            {study.tags.map((tag) => (
+                              <span
+                                key={tag}
+                                className="text-muted-foreground rounded-md border px-2 py-0.5 text-xs"
+                              >
+                                {tag}
                               </span>
-                            </div>
-                            <div className="flex flex-wrap gap-1.5">
-                              {study.tags.map((tag) => (
-                                <span
-                                  key={tag}
-                                  className="text-muted-foreground rounded-md border px-2 py-0.5 text-xs"
-                                >
-                                  {tag}
-                                </span>
-                              ))}
-                            </div>
+                            ))}
                           </div>
                         </div>
                       </CardContent>

@@ -98,7 +98,7 @@ export const Logos = () => {
   const secondRow = allCompanies.slice(6);
 
   const renderItem = (company: Company) => {
-    const baseClassName = "dark:bg-[#D3D3D3] grid aspect-square size-16 flex-shrink-0 place-items-center rounded-2xl p-2 transition-opacity hover:opacity-70 lg:size-20";
+    const baseClassName = "bg-primary/5 backdrop-blur-md border border-black/5 dark:bg-[#D3D3D3]/10 dark:border-white/10 grid aspect-square size-16 flex-shrink-0 place-items-center rounded-2xl p-2 transition-opacity hover:opacity-70 lg:size-20";
     
     return (
       <a
@@ -113,7 +113,7 @@ export const Logos = () => {
           alt={`${company.name} logo`}
           width={company.width}
           height={company.height}
-          className="object-contain"
+          className="object-contain !w-full !h-full scale-[0.9]"
         />
       </a>
     );

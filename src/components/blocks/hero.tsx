@@ -1,11 +1,9 @@
-"use client";
-
 import {
   ArrowRight,
-  Blend,
+  Bot,
   ChartNoAxesColumn,
-  CircleDot,
-  Diamond,
+  Link2,
+  Zap,
 } from "lucide-react";
 
 import { DashedLine } from "@/components/dashed-line";
@@ -16,23 +14,23 @@ import { Vortex } from "@/components/ui/vortex";
 
 const features = [
   {
-    title: "Tailored workflows",
-    description: "Track progress across custom issue flows for your team.",
-    icon: CircleDot,
+    title: "Automasi Cerdas",
+    description: "Workflow berjalan otomatis 24/7, tanpa intervensi manual.",
+    icon: Bot,
   },
   {
-    title: "Cross-team projects",
-    description: "Collaborate across teams and departments.",
-    icon: Blend,
+    title: "Integrasi Multi-Platform",
+    description: "Hubungkan 500+ aplikasi dalam satu ekosistem.",
+    icon: Link2,
   },
   {
-    title: "Milestones",
-    description: "Break projects down into concrete phases.",
-    icon: Diamond,
+    title: "Setup Cepat, Dampak Nyata",
+    description: "Live dalam hitungan hari, bukan bulan.",
+    icon: Zap,
   },
   {
-    title: "Progress insights",
-    description: "Track scope, velocity, and progress over time.",
+    title: "Insight Berbasis Data",
+    description: "Dashboard real-time untuk keputusan yang lebih tajam.",
     icon: ChartNoAxesColumn,
   },
 ];
@@ -138,15 +136,6 @@ export const Hero = () => {
           </div>
         </div>
 
-        <div className="mt-12 max-lg:ml-6 max-lg:h-[550px] max-lg:overflow-hidden md:mt-20 lg:container lg:mt-24">
-          <div className="relative h-[793px] w-full">
-            <img
-              src="/hero.webp"
-              alt="hero"
-              className="h-full w-full rounded-2xl object-cover object-left-top shadow-lg max-lg:rounded-tr-none"
-            />
-          </div>
-        </div>
       </Vortex>
     </section>
   );
